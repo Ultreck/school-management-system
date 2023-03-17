@@ -1,5 +1,7 @@
 /* eslint-disable no-restricted-globals */
-
+// eslint-disable-next-line no-restricted-globals
+// const ignored = self.__WB_MANIFEST;
+// Your custom service worker code goes here.
 // This service worker can be customized!
 // See https://developers.google.com/web/tools/workbox/modules
 // for the list of available Workbox modules, or add any other
