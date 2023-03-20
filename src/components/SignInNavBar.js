@@ -3,15 +3,15 @@ import { Sidebar } from 'flowbite-react';
 import { HiHome, HiTable, HiInformationCircle } from 'react-icons/hi'; 
 
 const SignInNavBar = () => {
-      const [sideControl, setsideControl] = useState("hidden")
+      const [signInControl, setsignInControl] = useState("hidden ")
       // const [setgetFunct, setsetgetFunct] = useState()
 
       const handleSideNavbar = () =>{
-            if(sideControl === "hidden"){
-                  setsideControl("flex");
+            if(signInControl === "hidden"){
+                  setsignInControl("flex");
             }
             else{
-                  setsideControl("hidden");
+                  setsignInControl("hidden");
             }
       }
       useEffect(() => {
@@ -20,7 +20,7 @@ const SignInNavBar = () => {
       
   return (
     <div>
-        <nav className="bg-white lg:hidden z-40 px-2 sm:px-4 dark:text-white text-black py-2.5 dark:bg-gray-900 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className="bg-white md:hidden z-40 px-2 sm:px-4 dark:text-white text-black py-2.5 dark:bg-gray-900 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div className="container flex flex-wrap items-center justify-between mx-auto">
   <a href="https://flowbite.com/" className="flex items-center ">
       <img src="https://flowbite.com/docs/images/logo.svg" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo"/>
@@ -36,7 +36,7 @@ const SignInNavBar = () => {
 
 
 
-<div className={sideControl}>
+<div className={signInControl}>
   <Sidebar aria-label="Default sidebar example" className=" fixed top-0 left-0 z-30 my-10 w-64 h-screen transition-transform -translate-x-0 sm:translate-x-0">
     <Sidebar.Items>
       <Sidebar.ItemGroup>

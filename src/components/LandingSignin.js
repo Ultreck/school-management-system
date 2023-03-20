@@ -16,11 +16,11 @@ const LandingSignin = () => {
     <div>
       <SignInNavBar/>
       <div className="text flex bg-white dark:bg-slate-900 dark:text-white overflow-hidden">
-            <div className="text h-screen w-0 lg:w-1/2 bg-orange-500" style={{clipPath:"polygon(0 1%, 100% 0%, 75% 100%, 0% 100%)"}}>
-              <img src={img} alt="" className="text w-2/3 mt-32 ml-10" />
+            <div className="text h-screen w-0 md:w-1/2 bg-orange-500" style={{clipPath:"polygon(0 1%, 100% 0%, 75% 100%, 0% 100%)"}}>
+              <img src={img} alt="" className="text w-3/5 mt-32 ml-10" />
               <h1 className="text-4xl font-bold  ml-8">EDUCATION IS POWER</h1>
             </div>
-            <div className="text h-screen lg:px-20 xl:px-32 px-5 py-12 overflow-hidden w-full lg:w-1/2  mx-auto" 
+            <div className="text h-screen lg:px-20 xl:px-32 px-5 py-12 overflow-hidden w-full md:w-1/2  mx-auto" 
             // style={{clipPath:"polygon(25% 0%, 100% 0%, 99% 100%, 0% 100%)"}}
             >
                         <div className="text mt-32">

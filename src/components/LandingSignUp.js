@@ -14,11 +14,11 @@ const LandingSignUp = () => {
     <div>
       <SignUpSideBar/>
       <div className="text flex bg-white dark:bg-slate-900 dark:text-white overflow-hidden">
-            <div className="text h-screen w-0 lg:w-1/2 bg-blue-500" style={{clipPath:"polygon(0 1%, 100% 0%, 75% 100%, 0% 100%)"}}>
-                  <div className="text-center ml-0 font-bold text-5xl  mt-24 p-0">
-                        <h1 className="text">  GOOD EDUCATION</h1>
-                        <h1 className="text">  IS A SENSATION</h1>
-                        <img src={img} alt="" className="text  -translate-x-10" />
+            <div className="text h-screen w-0 md:w-1/2 bg-blue-500" style={{clipPath:"polygon(0 1%, 100% 0%, 75% 100%, 0% 100%)"}}>
+                  <div className="text-center ml-0 font-bold text-4xl  mt-24 p-0">
+                        <h1 className="text">  GOOD EDUCATION <br /> IS A SENSATION</h1>
+                        {/* <h1 className="text"> </h1> */}
+                        <img src={img} alt="" className="text  translate-x-5 w-3/4" />
                  </div>
             </div>
             <div className="text h-screen lg:px-20 xl:px-32 px-5 py-12 overflow-hidden w-full md:w-1/2  mx-auto" 
