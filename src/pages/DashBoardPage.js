@@ -1,6 +1,6 @@
 import React , {useState, useEffect} from 'react'
-import Dashboard from '../components/Dashboard'
-import SideNavbar from '../components/SideNavbar'
+import SideNavbar from '../landingcomponents/SideNavbar';
+import Dashboard from '../loggedincomponents/Dashboard';
 
 const DashBoardPage = () => {
   const [getFunct, setgetFunct] = useState();

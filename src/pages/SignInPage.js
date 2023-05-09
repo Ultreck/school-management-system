@@ -1,6 +1,7 @@
 import React from 'react'
-import LandingNavBar from '../components/LandingNavBar'
-import LandingSignin from '../components/LandingSignin'
+import LandingNavBar from '../landingcomponents/LandingNavBar'
+import LandingSignin from '../landingcomponents/LandingSignin'
+
 
 const SignInPage = () => {
   return (

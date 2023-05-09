@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Sidebar } from 'flowbite-react';
-import { HiHome, HiArrowSmRight, HiInformationCircle, HiTable } from 'react-icons/hi'; 
+import { HiHome, HiTable, HiInformationCircle } from 'react-icons/hi'; 
 
-const HomeSideNavBar = () => {
-
-      const [homeControl, sethomeControl] = useState("hidden  ")
+const SignInNavBar = () => {
+      const [signInControl, setsignInControl] = useState("hidden ")
       // const [setgetFunct, setsetgetFunct] = useState()
 
       const handleSideNavbar = () =>{
-            if(homeControl === "hidden"){
-                  sethomeControl("flex");
+            if(signInControl === "hidden"){
+                  setsignInControl("flex");
             }
             else{
-                  sethomeControl("hidden");
+                  setsignInControl("hidden");
             }
       }
       useEffect(() => {
             handleSideNavbar();
       }, [])
-
+      
   return (
     <div>
-             <nav className="bg-white md:hidden z-40 px-2 sm:px-4 dark:text-white text-black py-2.5 dark:bg-gray-900 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className="bg-white md:hidden z-40 px-2 sm:px-4 dark:text-white text-black py-2.5 dark:bg-gray-900 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div className="container flex flex-wrap items-center justify-between mx-auto">
   <a href="https://flowbite.com/" className="flex items-center ">
       <img src="https://flowbite.com/docs/images/logo.svg" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo"/>
@@ -37,28 +36,28 @@ const HomeSideNavBar = () => {
 
 
 
-<div className={homeControl}>
+<div className={signInControl}>
   <Sidebar aria-label="Default sidebar example" className=" fixed top-0 left-0 z-30 my-10 w-64 h-screen transition-transform -translate-x-0 sm:translate-x-0">
     <Sidebar.Items>
       <Sidebar.ItemGroup>
-        {/* <Sidebar.Item
+        <Sidebar.Item
           href="/"
           icon={HiHome}
         >
           Home
-        </Sidebar.Item> */}
-        <Sidebar.Item
+        </Sidebar.Item>
+        {/* <Sidebar.Item
           href="/about"
           icon={HiInformationCircle}
         >
           About
-        </Sidebar.Item>
-        <Sidebar.Item
+        </Sidebar.Item> */}
+        {/* <Sidebar.Item
           href="/signin"
           icon={HiArrowSmRight}
         >
           Sign In
-        </Sidebar.Item>
+        </Sidebar.Item> */}
         <Sidebar.Item
           href="/signup"
           icon={HiTable}
@@ -73,4 +72,4 @@ const HomeSideNavBar = () => {
   )
 }
 
-export default HomeSideNavBar
+export default SignInNavBar

@@ -3,21 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 // import 'flowbite';
-import * as te from 'tw-elements';
+// import * as te from 'tw-elements';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
+// import Main from './Main';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <App  />
+            {/* <Main/> */}
         </BrowserRouter>
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>
 );
 

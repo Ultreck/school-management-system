@@ -1,28 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import img from '../images/TDS_1_OLHP_655x348.jpg';
-import img2 from '../images/CB-D9-5050Panel-S_RT-NRP.jpg';
-import img3 from '../images/images.jfif';
-import img4 from '../images/Graduation-Scholarship-PNG-Free-Image.png';
-import { HiMoon } from 'react-icons/hi';
-import HomeSideNavBar from './HomeSideNavBar';
+import React from 'react'
 
-const LandingComponent = () => {
+const AllTrash = () => {
   return (
-    <div className='lg:overflow-hidden h-auto '>
-      <HomeSideNavBar/>
+    <div>
+      {/* Initial landing page code  */}
+      <div className='lg:overflow-hidden h-auto '>
+      {/* <HomeSideNavBar/> */}
       <div className="text  grid md:flex bg-white dark:bg-slate-900 dark:text-white lg:overflow-hidden">
           <div className="text  md:h-screen w-0 md:w-1/2 bg-orange-600  hidden md:grid md:-translate-x-5 -translate-x-16 lg:overflow-hidden py-20 pl-16 pr-20" style={{clipPath:"polygon(0 1%, 100% 0%, 75% 100%, 0% 100%)"}}>
             <div className="text-center mt-10">
             <h1 className="text-center pl-32 font-bold text-xl hidden lg:flex">  YOUR DOOR TO THE FUTURE</h1>
-            <img src={img4} alt="" className="text mt-8" />
+            <img src="" alt="" className="text mt-8" />
               
             </div>
           </div>
           {/* Second  side dive */}
           <div className="text md:h-screen py-10  md:py-20 w-full md:w-full lg:w-1/2 lg:pr-10" >
             <div className="text w-full lg:h-scree h-auto p-5 md:p-0 md:hidden">
-              <img src={img} alt="schorlars" className="text w-full h-4/5" />
+              <img src="" alt="schorlars" className="text w-full h-4/5 hidden" />
             </div>
             <h1 className="text-center font-bold text-xl lg:hidden mt-10">  YOUR DOOR TO THE FUTURE</h1>
           <div
@@ -61,7 +56,7 @@ const LandingComponent = () => {
                         data-te-carousel-item
                         data-te-carousel-active>
                         <img
-                          src={img}
+                          src=""
                           className="block w-full h-60"
                           alt="Wild Landscape" />
                       </div>
@@ -69,7 +64,7 @@ const LandingComponent = () => {
                         className="relative float-left -mr-[100%]  h-2/5 hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                         data-te-carousel-item>
                         <img
-                          src={img2}
+                          src=""
                           className="block w-full h-60"
                           alt="Camera" />
                       </div>
@@ -77,7 +72,7 @@ const LandingComponent = () => {
                         className="relative float-left -mr-[100%]  h-2/5 hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                         data-te-carousel-item>
                         <img
-                          src={img3}
+                          src=""
                           className="block w-full h-60"
                           alt="Exotic Fruits" />
                       </div>
@@ -133,21 +128,22 @@ const LandingComponent = () => {
                   </div>
                 <p className="text-sm md:text-lg px-6 mt-10">
               Thank you for visiting 
-              <Link to='/' className=" ml-1 font-bold  text-orange-400 underline underline-offset-2">WTS</Link>  School Administration System! Our extensive web platform is made to improve learning for students, instructors, and administrators while streamlining school administration. You can easily manage student records, keep track of attendance, record grades, speak with parents, and do a lot more using our system. Our intuitive design and features allow for easy navigation and customization to meet the unique requirements of each and every users. To access your customized dashboard and get started,
-              <Link to='/signin' className='underline text-blue-500 mx-1'>log in</Link>or <Link to='/signup' className='underline text-orange-500 mx-1'>register</Link> right away!
+              <link to='/' className=" ml-1 font-bold  text-orange-400 underline underline-offset-2">WTS</link>  School Administration System! Our extensive web platform is made to improve learning for students, instructors, and administrators while streamlining school administration. You can easily manage student records, keep track of attendance, record grades, speak with parents, and do a lot more using our system. Our intuitive design and features allow for easy navigation and customization to meet the unique requirements of each and every users. To access your customized dashboard and get started,
+              <link to='/signin' className='underline text-blue-500 mx-1'>log in</link>or <link to='/signup' className='underline text-orange-500 mx-1'>register</link> right away!
               </p>
           </div>
           <div className="text mx-auto mb-10 lg:hidden">
-            <Link className="text mx-6 bg-blue-500 px-10 h-6 rounded py-2 " to='/signup'>
+            <link className="text mx-6 bg-blue-500 px-10 h-6 rounded py-2 " to='/signup'>
                 <button className="text">Register</button>
-            </Link>
-            <Link  className="text mx-6 bg-orange-500 px-10 h-6 rounded py-2 " to='/signin'>
+            </link>
+            <link  className="text mx-6 bg-orange-500 px-10 h-6 rounded py-2 " to='/signin'>
                   <button className="text">Log in</button>
-            </Link>
+            </link>
           </div>
       </div>
+    </div>
     </div>
   )
 }
 
-export default LandingComponent
+export default AllTrash

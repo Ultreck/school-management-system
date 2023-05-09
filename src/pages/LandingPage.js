@@ -1,6 +1,6 @@
 import React from 'react'
-import LandingComponent from '../components/LandingComponent'
-import LandingNavBar from '../components/LandingNavBar'
+import LandingNavBar from '../landingcomponents/LandingNavBar'
+import LandingComponent from '../landingcomponents/LandingComponent'
 
 
 const LandingPage = () => {

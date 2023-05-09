@@ -1,6 +1,7 @@
 import React from 'react'
-import LandingNavBar from '../components/LandingNavBar'
-import LandingSignUp from '../components/LandingSignUp'
+import LandingNavBar from '../landingcomponents/LandingNavBar'
+import LandingSignUp from '../landingcomponents/LandingSignUp'
+
 
 const SignUpPage = () => {
   return (
