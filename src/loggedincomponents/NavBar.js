@@ -10,7 +10,7 @@ const NavBar = () => {
       // const [open, setopen] = useState(second)
   return (
     <div>
-            <nav className="text w-full bg-blue-900 fixed border-b px-10 py-2 z-40">
+            <nav className="text w-full lg:hidden bg-blue-900 fixed border-b px-10 py-2 z-40">
                   <div className="text flex justify-between">
                         <div className="text lg:flex hidden ">
                               <div className="text rounded-full w-10 h-10 bg-white"></div>
@@ -24,7 +24,7 @@ const NavBar = () => {
                               <button title='Notification' className="text-center text-white rounded-full w-10 h-10  mt bg-blue-300/50">
                                     <IoMdNotifications className='text-center mx-auto w-6 h-6'/>
                               </button>
-                              <button className="text-white text-2xl font-semibold ml-10">
+                              <button className="text-white flex lg:hidden text-2xl font-semibold ml-10">
                                     <AiOutlineBars/>
                               </button>
                         </div>

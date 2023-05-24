@@ -5,11 +5,11 @@ const UserSlice = createSlice({
       initialState:{},
       name: 'users',
       reducers:{
-            users: (state, {payload}) =>{
+            userAct: (state, {payload}) =>{
                   state = {...state, ...payload};
                   return state;
             }
       }
 })
 export const userReducer = UserSlice.reducer
-export const {users} = UserSlice.actions
+export const {userAct} = UserSlice.actions

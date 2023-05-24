@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import img from '../images2/banner.png';
 import NewYork from '../images2/newyork.png';
@@ -11,17 +11,35 @@ import computer from '../images2/computer.jpg';
 import hall from '../images2/hall.jpg';
 import swim from '../images2/sport.jpg';
 import { HiMoon } from 'react-icons/hi';
+import { IoMdSchool } from "react-icons/io";
 import HomeSideNavBar from './HomeSideNavBar';
 
 const LandingComponent = () => {
+  const [loader, setloader] = useState(false);
+  useEffect(() => {
+   setloader(false);
+  }, [])
+  
   return (
    <>
+      {/* Loader */}
+      <div className={`text w-full fixed ${!loader? 'hidden' : "fixed"}  h-screen bg-slate-700 z-50 `}>
+        <div className="text w-full h-screen fixed  bg-slate-800">
+          <div className="text-center  ">
+            <div className="text mt-20">
+                   <IoMdSchool className='text-amber-600  mt-6 mx-auto text-5xl'/>
+                    <span className="text-white text-xl font-bold">Edutech</span>
+            </div>
+            <div className="text-center mx-auto abso relative rounded-full  animate-spin duration-300 p-4 mt-40 w-20 h-20 z-50  border-t-2"> </div>
+          </div>
+        </div>
+      </div>
    <div className="text overflow-x-hidden w-full px-0">
     <HomeSideNavBar/>
     <div className="text " >
       {/* Hero section */}
-      <div className="text lg:pt-36 pt-20 px-0 w-full h-screen bg-cover bg-no-repeat bg-black/75 bg-blend-overlay mx-0" style={{backgroundImage: `url(${img})`}}>
-          <p className="text-white text-4xl lg:text-9xl text-center  font-extrabold px-5 lg:px-20 font-sans ">World's Biggest University of Technology</p>
+      <div className="text lg:pt-28 pt-20 px-0 w-full h-screen bg-cover bg-no-repeat bg-black/75 bg-blend-overlay mx-0" style={{backgroundImage: `url(${img})`}}>
+          <p className="text-white text-4xl lg:text-8xl text-center  font-extrabold px-5 lg:px-20 font-sans ">World's Biggest University of Technology</p>
           <p className="text w-3/4 text-center mx-auto text-white text-xl mt-10 lg:px-28">Creating a well equipped and an advanced technology available for all. Technology is one of the most crucial field today and to make your way through or to be able to meet up with your expectation Edutech is the choice.</p>
           <div className="text-center mt-10">
           <Link to={"/signin"}> 
@@ -33,10 +51,6 @@ const LandingComponent = () => {
       <div className="text-center text-slate-800  font-bold w-full my-20">
           <div className="text">
             <p className="text text-3xl my-7 animate__animated animate__backInLeft" >Programs We Offer</p>
-            <div data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1500">Programs We Offer
-        </div>
             {/* <p className="text font-normal text-xl lg:text-2xl lg:text-center px-5 lg:px-28 my-10 font-serif w-full lg:w-4/5 lg:mx-auto overflow-x-hidden">
             Welcome to our administration system for schools! We take pride in providing a variety of programs that are tailored to the various requirements of our students. We provide options for you whether you want to get an undergraduate degree, expand your profession with a postgraduate degree, or hone your abilities with a diploma program.
             </p> */}

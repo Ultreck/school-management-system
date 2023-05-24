@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
+import { IoMdSchool } from "react-icons/io";
 
 const LandingNavBar = () => {
   const [active, setactive] = useState('')
@@ -9,9 +10,9 @@ const LandingNavBar = () => {
             
 <nav className="bg-transparent hidden z-40 md:flex px-2 sm:px-4 py-2.5 dark:bg-transparent absolute w-full  top-0 left-0   ">
   <div className="container flex flex-wrap items-center justify-between mx-auto">
-  <Link to="/" className="flex items-center ">
-      <img src="https://flowbite.com/docs/images/logo.svg" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo"/>
-      <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">EduTech</span>
+  <Link to="/" className="flex items-center text-yellow-400">
+      <IoMdSchool className='text-4xl mx-1'/>
+      <span className="self-center text-xl font-semibold whitespace-nowrap text-blue-500">EduTech</span>
   </Link>
   <div className=" flex justify-between" id="navbar-sticky">
       <ul className="">

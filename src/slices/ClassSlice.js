@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const ClassSlice = createSlice({
-      initialState:true,
+      initialState:{},
       name:'boolean',
       reducers:{
             setClass: (state, {payload}) =>{

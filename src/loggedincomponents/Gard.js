@@ -6,9 +6,7 @@ const Gard = () => {
   const [isLoggedIn, setisLoggedIn] = useState(false);
     useEffect(() => {
       if(localStorage.user_id){
-        let user_id = JSON.parse(localStorage.getItem("user_id"))
         setisLoggedIn(true);
-        console.log(user_id);
       }else{
         setisLoggedIn(false);
       }
@@ -16,9 +14,9 @@ const Gard = () => {
     }, [])
   
     if(isLoggedIn){
-      return <MainLoggedInPage/>
+      return <MainLoggedInPage isLoggedIn={isLoggedIn}/>
     }else{
-      return <LandingPage/>
+      return <LandingPage  isLoggedIn={isLoggedIn}/>
     }
 }
 
