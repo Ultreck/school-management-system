@@ -1,15 +1,16 @@
 import React, {useState} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { IoMdSchool } from "react-icons/io";
+import "../cssFolder/LandingPage.module.css"
 
 const LandingNavBar = () => {
-  const [active, setactive] = useState('')
+  const [active, setactive] = useState('');
   return (
     <div>
 
             
-<nav className="bg-transparent hidden z-40 md:flex px-2 sm:px-4 py-2.5 dark:bg-transparent absolute w-full  top-0 left-0   ">
-  <div className="container flex flex-wrap items-center justify-between mx-auto">
+<nav className="bg-transparent hidden z-40  md:flex px-2 sm:px-4 py-2.5 dark:bg-transparent absolute w-full  top-0 left-0  ">
+  <div className="container flex flex-wrap items-center justify-between mx-auto  z-30">
   <Link to="/" className="flex items-center text-yellow-400">
       <IoMdSchool className='text-4xl mx-1'/>
       <span className="self-center text-xl font-semibold whitespace-nowrap text-blue-500">EduTech</span>

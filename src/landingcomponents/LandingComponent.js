@@ -99,22 +99,22 @@ const LandingComponent = () => {
           Our campuses are equipped with a variety of contemporary and welcoming amenities, including roomy lecture halls, cutting-edge research labs, and well-stocked computer facilities. We also provide kids with access to a library, a gym, sports courts, and other areas where they may rest and engage in physical exercise.
           </p>
         <div className="text-white font-bold text-3xl grid lg:flex gap-4 px-5">
-          <div className="text  w-full lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 lg:hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${img})`}}>
+          <div className="text  mx-auto w-full sm:w-3/4 md:w-3/5 lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 lg:hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${img})`}}>
             <div className="text flex justify-center lg:opacity-0 hover:opacity-100 items-stretch w-full h-full ">
               <h1 className="text   self-center">Nigeria</h1>
             </div>
           </div>
-          <div className="text w-full lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${NewYork})`}}>
+          <div className="text mx-auto w-full sm:w-3/4 md:w-3/5 lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${NewYork})`}}>
               <div className="text   flex justify-center lg:opacity-0 hover:opacity-100 items-stretch w-full h-full">
                 <h1 className="text self-center ">NewYork</h1>
               </div>
           </div>
-          <div className="text w-full lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${London})`}}>
+          <div className="text mx-auto w-full sm:w-3/4 md:w-3/5 lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${London})`}}>
               <div className="text  flex justify-center lg:opacity-0 hover:opacity-100 items-stretch w-full h-full">
                 <h1 className="text self-center">London</h1>
               </div>
           </div>
-          <div className="text w-full lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${Washington})`}}>
+          <div className="text mx-auto w-full sm:w-3/4 md:w-3/5 lg:w-1/4 h-96  bg-cover bg-no-repeat lg:bg-inherit rounded-xl bg-blue-900/75 hover:bg-blue-900/75 bg-blend-overlay" style={{backgroundImage: `url(${Washington})`}}>
               <div className="text  flex justify-center lg:opacity-0 hover:opacity-100 items-stretch w-full h-full">
                 <h1 className="text self-center">Washington</h1>
               </div>
@@ -130,39 +130,51 @@ const LandingComponent = () => {
             </p>
           <div className="text px-7 lg:px-10  justify-around lg:gap-4 mx-auto">
             <div className="text lg:flex justify-around">
-                  <div className="text w-full lg:w-96">
-                    <img src={library} alt="" className="text w-80 h-80 rounded-lg" />
-                    <h1 className="text-2xl my-4 font-bold">World Class Library</h1>
-                    <p className="text w-11/12 lg:w-full px-2 mb-6">Our library is intended to give you a relaxing and inviting space where you may study, work with others, or just unwind and read. For your convenience, our facility has quiet places, group study rooms, computer workstations, and study areas.</p>
+                  <div className="text w-full lg:w-96 grid justify-center">
+                    <div className="text-center mx-auto mt-10 lg:mt-0">
+                      <img src={library} alt="" className="text w-80 h-80 rounded-lg" />
+                    </div>
+                    <h1 className="text-2xl my-4 font-bold text-center">World Class Library</h1>
+                    <p className="text sm:w-3/4 mx-auto lg:w-full px-2 mb-6">Our library is intended to give you a relaxing and inviting space where you may study, work with others, or just unwind and read. For your convenience, our facility has quiet places, group study rooms, computer workstations, and study areas.</p>
                   </div>
-                  <div className="text w-full lg:w-96">
-                    <img src={basketball} alt="" className="text w-80 h-80 rounded-lg" />
-                    <h1 className="text-2xl my-4 font-bold">Largest Play Fround</h1>
-                    <p className="text  w-11/12 lg:w-full px-2 mb-6">Our playground offers a variety of tools and amenities meant to encourage student interest, discovery, and physical growth. To accommodate a range of ages and abilities, we have a selection of play structures, swings, and climbing walls. Students can also enjoy various leisure spaces, basketball and volleyball courts, and outdoor sports grounds in our play area.</p>
+                  <div className="text w-full lg:w-96  grid justify-center">
+                    <div className="text-center mx-auto mt-10 lg:mt-0">
+                      <img src={basketball} alt="" className="text w-80 h-80 rounded-lg" />
+                    </div>
+                    <h1 className="text-2xl my-4 font-bold text-center">Largest Play Fround</h1>
+                    <p className="text  sm:w-3/4 mx-auto lg:w-full px-2 mb-6">Our playground offers a variety of tools and amenities meant to encourage student interest, discovery, and physical growth. To accommodate a range of ages and abilities, we have a selection of play structures, swings, and climbing walls. Students can also enjoy various leisure spaces, basketball and volleyball courts, and outdoor sports grounds in our play area.</p>
                   </div>
-                  <div className="text w-full lg:w-96">
-                    <img src={cafeteria} alt="" className="text w-80 h-80 rounded-lg" />
-                    <h1 className="text-2xl my-4 font-bold">Tasty & healthy Food</h1>
-                    <p className="text  w-11/12 lg:w-full px-2 mb-6">It has been demonstrated that eating a balanced diet of wholesome foods improves academic achievement, energy levels, and general health. We think that our cafeteria offers students a practical and cost-effective approach to get hold of high-quality food selections that support a balanced and healthy lifestyle.</p>
+                  <div className="text w-full lg:w-96  grid justify-center">
+                    <div className="text-center mx-auto mt-10 lg:mt-0">
+                        <img src={cafeteria} alt="" className="text w-80 h-80 rounded-lg" />
+                    </div>
+                    <h1 className="text-2xl my-4 font-bold text-center">Tasty & healthy Food</h1>
+                    <p className="text sm:w-3/4 mx-auto lg:w-full px-2 mb-6">It has been demonstrated that eating a balanced diet of wholesome foods improves academic achievement, energy levels, and general health. We think that our cafeteria offers students a practical and cost-effective approach to get hold of high-quality food selections that support a balanced and healthy lifestyle.</p>
                   </div>
             </div>
             <div className="text lg:flex justify-around">
-                    <div className="text w-full lg:w-96">
-                      <img src={hall} alt="" className="text w-80 h-80 rounded-lg" />
-                      <h1 className="text-2xl my-4 font-bold">Largest Hall</h1>
-                      <p className="text  w-11/12 lg:w-full px-2 mb-6">
+                    <div className="text w-full lg:w-96 grid justify-center">
+                    <div className="text-center mx-auto mt-10 lg:mt-0">
+                        <img src={hall} alt="" className="text w-80 h-80 rounded-lg" />
+                    </div>
+                      <h1 className="text-2xl my-4 font-bold text-center">Largest Hall</h1>
+                      <p className="text  sm:w-3/4 mx-auto lg:w-full px-2 mb-6">
                       The hall is a crucial component of our school community because it offers a place for parents, teachers, and students to gather to celebrate successes, exchange ideas, and take in performances. We think that our hall is a busy place.
                       </p>
                     </div>
-                    <div className="text w-full lg:w-96">
-                      <img src={swim} alt="" className="text w-80 h-80 rounded-lg" />
-                      <h1 className="text-2xl my-4 font-bold">Best Sports Facilities</h1>
-                      <p className="text  w-11/12 lg:w-full px-2 mb-6">Swimming and other water-based exercises are great kinds of exercise that have been proved to improve cardiovascular health, physical fitness, and general well-being. We think that our swimming pool offers students an enjoyable and practical approach to maintain an active lifestyle.</p>
+                    <div className="text w-full lg:w-96 grid justify-center">
+                      <div className="text-center mx-auto mt-10 lg:mt-0">
+                        <img src={swim} alt="" className="text w-80 h-80 rounded-lg" />
+                      </div>
+                      <h1 className="text-2xl my-4 font-bold text-center">Best Sports Facilities</h1>
+                      <p className="text  sm:w-3/4 mx-auto lg:w-full px-2 mb-6">Swimming and other water-based exercises are great kinds of exercise that have been proved to improve cardiovascular health, physical fitness, and general well-being. We think that our swimming pool offers students an enjoyable and practical approach to maintain an active lifestyle.</p>
                     </div>
-                    <div className="text w-full lg:w-96">
-                      <img src={computer} alt="" className="text w-80 h-80 rounded-lg" />
-                      <h1 className="text-2xl my-4 font-bold">Best Computer Lab</h1>
-                      <p className="text  w-11/12 lg:w-full px-2 mb-6">The most recent hardware and software are installed in our computer lab, giving students access to a variety of tools and resources that assist learning across the curriculum. We have access to high-speed internet, a choice of multimedia programs, and a range of gadgets, including tablets, laptops, and desktop PCs.
+                    <div className="text w-full lg:w-96 grid justify-center">
+                      <div className="text-center mx-auto mt-10 lg:mt-0">
+                          <img src={computer} alt="" className="text w-80 h-80 rounded-lg" />
+                      </div>
+                      <h1 className="text-2xl my-4 font-bold text-center">Best Computer Lab</h1>
+                      <p className="text  sm:w-3/4 mx-auto lg:w-full px-2 mb-6">The most recent hardware and software are installed in our computer lab, giving students access to a variety of tools and resources that assist learning across the curriculum. We have access to high-speed internet, a choice of multimedia programs, and a range of gadgets, including tablets, laptops, and desktop PCs.
                    </p>
                 </div>
             </div>

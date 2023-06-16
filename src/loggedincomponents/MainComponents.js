@@ -15,27 +15,28 @@ import {
   Legend
 } from 'chart.js'
 import { Bar, Doughnut } from 'react-chartjs-2'
-import axios from 'axios';
-import { baseUrl } from '../baseUrl';
-import { getDatas } from '../slices/AllDataSlice';
+// import axios from 'axios';
+// import { baseUrl } from '../baseUrl';
+// import { getDatas } from '../slices/AllDataSlice';
 import { Link } from 'react-router-dom';
 // import 'react-calendar/'
 
 const MainComponents = ({open}) => {
   const [date, setdate] = useState(new Date());
-  const [userData, setuserData] = useState([])
-const dispatch = useDispatch();
+  // const [userData, setuserData] = useState([])
+// const dispatch = useDispatch();
 
-useEffect(() => {
-  axios.get(baseUrl + "/datas").then(res =>{
-    setuserData(res.data);
-    // console.log(res);
-    dispatch(getDatas(res.data));
-    }).catch(err => {console.log(err);});
-  }, [dispatch])
+// useEffect(() => {
+//   axios.get(baseUrl + "/datas").then(res =>{
+//     setuserData(res.data);
+//     // console.log(res);
+//     dispatch(getDatas(res.data));
+//     }).catch(err => {console.log(err);});
+//   }, [dispatch])
   
   const state = useSelector(state => state.datas);
-  console.log(state);
+
+  // console.log(users);
 
   Chartjs.register(
       BarElement,
@@ -56,7 +57,6 @@ useEffect(() => {
         borderColor: 'none',
         borderWidth: 0,
         borderRadius: 2,
-        width: 1
         // width: '80%',
       }
     ]
@@ -80,17 +80,17 @@ useEffect(() => {
   }
   // console.log(state);
   return (
-    <div className='w-full bg-white'>
-      <div className="text flex px-5 w-full relative overflow-auto h-screen ">
+    <div className='w-full lg:pl-24 mx-auto bg-white relative  overflow-auto  h-screen'>
+      <div className="text flex px-5 w-full relative overflow-hidden mt-10">
         {/* Whole page and dashboard */}
           <div className="text w-full lg:w-full lg:mx-auto  xl:w-3/4  xl:mx-0">
-            <div className="text md:flex justify-center lg:flex-wrap xl:flex-nowrap xl:gap-4 w-full lg:mx-auto lg:gap-6 mx-auto gap-4 mt-10 lg:mt-0  py-5 xl:mx-0 xl:px-5">
+            <div className="text md:flex justify-center lg:flex-wrap xl:flex-nowrap xl:gap-4 w-full lg:mx-auto lg:gap-6 mx-auto gap-4 lg:mt-0  py-5 xl:mx-0 xl:px-5">
                 <div className="text-center w-full  md:w-1/4 lg:w-2/5 xl:w-1/4 my-5 h-40 px-2 py-5 bg-blue-100 rounded-lg">
                   <div className="text-white mx-auto w-10 h-10 bg-blue-600 p-2" style={{clipPath:"polygon(0 25%, 51% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)"}}>
                     <IoMdSchool className='z-50 w-full h-full'/>
                   </div>
                     <p className="text-sm lg:text-lg py-2 ">Total Student</p>
-                    <div className="text-xl font-semibold">200</div>
+                    <div className="text-xl font-semibold">{state.length}</div>
                 </div>
                 <div className="text-center w-full md:w-1/4  lg:w-2/5 xl:w-1/4 my-5 h-40 px-2 py-5 bg-red-100 rounded-lg">
                   <div className="text-white mx-auto w-10 h-10 bg-red-600 p-2" style={{clipPath:"polygon(0 25%, 51% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)"}}>
@@ -162,7 +162,7 @@ useEffect(() => {
 
           </div>
         {/* side page and calendar nav */}
-          <div className={`text w-0 lg:w-1/4 $ border h-screen absolute right-0 px-8 mt-0  shadow-lg hidden xl:flex`}>
+          <div className={`text w-0 lg:w-1/4 $ border h-screen absolute  right-0 px-8 mt-5 overflow-hidden  hidden xl:flex`}>
                 <div className="app">
                   <h1 className="header text-2xl font-bold underline py-2">Calendar</h1>
                   <div className="calendar-container rounded-lg border shadow-sm my-6">

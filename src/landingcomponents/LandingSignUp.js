@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import img from '../images2/Thesis-amico.png'
 import imgwellDone from '../images2/depositphotos_76288887-stock-photo-well-done-word-on-banner.jpg'
-import { NavLink, useNavigate } from 'react-router-dom';
-import SignUpSideBar from './SignUpSideBar';
+import { useNavigate } from 'react-router-dom';
 import {Icon} from 'react-icons-kit';
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
 import {eye} from 'react-icons-kit/feather/eye'
@@ -17,13 +16,12 @@ const LandingSignUp = () => {
       const [studenArray, setstudenArray] = useState([])
       const [checkBox, setcheckBox] = useState(false)
       const [progress, setprogress] = useState(0)
-      const [address, setaddress] = useState({})
       const [errModalClass, seterrModalClass] = useState("mb-3 inline-flex w-full items-center rounded-lg bg-danger-100 py-3 px-4 text-sm text-danger-800 hidden")
       const [successModalClass, setsuccessModalClass] = useState("mb-3 inline-flex w-full items-center rounded-lg bg-success-100 py-2 px-4 text-base text-success-800 hidden")
       const [errModalText, seterrModalText] = useState("")
       const [buttonClass, setbuttonClass] = useState("text-white bg-blue-700 hover:bg-blue-800  font-semibold rounded-lg text-sm px-5 py-2 text-center w-1/2")
       // const [errModalText, seterrModalText] = useState("")
-      const [inputClass, setinputClass] = useState("mb-4 relative md:mb-5")
+      const [inputClass, setinputClass] = useState("mb-3 relative md:mb-5")
       const [addressDetails, setaddressDetails] = useState({
             country:"", 
             region:"", 
@@ -59,8 +57,9 @@ const LandingSignUp = () => {
                   setcount(count - 1);
             }
 
-            if(count === 0 && localStorage.user_id){
-                  navigate("/portal");
+            if(count === 0 && sessionStorage.user_id){
+                  navigate("/signin");
+                  // navigate("/portal");
             }
             return () => clearTimeout();
       };
@@ -138,7 +137,7 @@ const LandingSignUp = () => {
                   }
                   else{
                         axios.post(baseUrl + "/validate", studentData).then(res => {
-                              console.log(res);
+                              // console.log(res);
                               if(res.data.status === 400){
                                     seterrModalText("Account already exist.") ;
                                     seterrModalClass('mb-3 inline-flex w-full items-center rounded-lg bg-danger-100 py-3 px-4 text-sm text-danger-800'); 
@@ -171,7 +170,7 @@ const LandingSignUp = () => {
                         seterrModalClass("hidden");
                         let matric = Math.floor(10000 + Math.random() * 90000);
                         dispatch(registerFunct({matric: matric}));
-                        console.log(state);
+                        // console.log(state);
                   }
             }
       }
@@ -189,12 +188,12 @@ const LandingSignUp = () => {
                 setcount(5)
                 seterrModalClass("hidden");
                  axios.post(baseUrl + "/register", state).then(res => {
-                              console.log(res.data.data);
+                              // console.log(res.data.data);
                               if(res.data.status === 400){
                                     seterrModalText("Account already exist, please sign in")
                                     seterrModalClass('mb-3 inline-flex w-full items-center rounded-lg bg-red-100 py-3 px-4 text-sm text-red-800')
                               }else{
-                                    localStorage.setItem("user_id", JSON.stringify(res.data.data._id))
+                                    // sessionStorage.setItem("user_id", JSON.stringify(res.data.data._id));
                                     setinputClass("mb-2 relative md:mb-5")
                                     setstudenArray([...studenArray, studentData])
                                     setbuttonClass("text-white bg-blue-700 hover:bg-blue-800  font-semibold rounded-lg text-sm px-5 py-2 text-center w-1/2 animate-pulse")
@@ -226,13 +225,13 @@ const LandingSignUp = () => {
   return (
     <div>
       {/* <SignUpSideBar/> */}
-      <div className="text flex  overflow-auto lg:overflow-hidden">
-            <div className="text lg:px-8 lg:h-screen w-full px-5 md:w-1/2 bg-cover lg:mt-20 bg-white border-b lg:border-b-0 fixed lg:relative">
-                  <div className="text  mx-auto">
-                        <div className="text flex justify-around py-2">
-                              <span className={`text-sm lg:text-lg px-2 ${progress === 1 ? 'text-blue-700 underline ' : ''}`}>Personal Details</span>
-                              <span className={`text-sm lg:text-lg px-2 ${progress === 2 ? 'text-blue-700 underline ' : ''}`}>Address Details</span>
-                              <span className={`text-sm lg:text-lg px-2 ${progress === 3 ? 'text-blue-700 underline ' : ''}`}>Accademical Details</span>
+      <div className="text flex  justify-center overflow-auto lg:overflow-hidden">
+            <div className="text lg:px-8  w-full px-5 md:w-1/2 bg-cover mx-auto md:mt-12 mt-12 lg:mt-20 bg-white border-b md:border-b-0 fixed lg:relative ">
+                  <div className="text mx-auto">
+                        <div className="text flex justify-around py-2 ">
+                              <span className={`text-xs lg:text-lg px-2 ${progress === 1 ? 'text-blue-700 underline underline-offset-4' : ''}`}>Personal Details</span>
+                              <span className={`text-xs lg:text-lg px-2 ${progress === 2 ? 'text-blue-700 underline underline-offset-4' : ''}`}>Address Details</span>
+                              <span className={`text-xs lg:text-lg px-2 ${progress === 3 ? 'text-blue-700 underline underline-offset-4' : ''}`}>Accademical Details</span>
                         </div>
                         <div className="text relative flex self-start w-full">
                               <div className={`text relative border p-1 rounded-full ${progress === 1 || progress === 2 || progress=== 3? 'bg-sky-400': " border bg-gray-50"} w-1/3`}>
@@ -251,11 +250,11 @@ const LandingSignUp = () => {
                         </div>
                   </div>
             </div>
-            <div className={`text h-screen lg:px-20 xl:px-32 px-5 py-12 ${progress === 0? '': 'hidden'} overflow-auto w-full md:w-1/2 mx-auto mt-16 lg:mt-0`} 
+            <div className={`text h-screen lg:px-20 xl:px-32 px-5 py-5 ${progress === 0? '': 'hidden'} overflow-auto w-full md:w-1/2 mx-auto mt-16 lg:mt-0`} 
             >
                   <div className="text  border  rounded-lg py-4 w-full h-auto md:mt-10 mt-5 md:px-10 px-3 mx-auto">   
                   <div>
-                        <h1 className="text mb-3  text-xl font-bold pb-4">Personal Details</h1>
+                        <h1 className="text mb-2  text-xl font-bold pb-4">Personal Details</h1>
                         {/* Success Modal */}
                         <div className={successModalClass} role="alert">
                               <span className="mr-2">
@@ -276,24 +275,24 @@ const LandingSignUp = () => {
                                      {errModalText} 
                         </div>
                   <div className={inputClass}>
-                  <label className="block mb-2 text-sm font-medium text-gray-900">Your first name:</label>
+                  <label className="block mb-1 text-sm font-medium text-gray-900">Your first name:</label>
                   <input name='firstname' value={studentData.firstname} onChange={handleChanges} type="text" id="firstname" className="shadow-sm w-full border py-2 px-6 rounded focus:ring-0 focus:outline-blue-500" placeholder="e.g John" required/>
                   </div>
                   <div className={inputClass}>
-                  <label className="block mb-2 text-sm font-medium text-gray-900 ">Your last name:</label>
+                  <label className="block mb-1 text-sm font-medium text-gray-900 ">Your last name:</label>
                   <input name='lastname' value={studentData.lastname} onChange={handleChanges} type="text" id="lastname" className="shadow-sm w-full border py-2 px-6 rounded focus:ring-0 focus:outline-blue-500" placeholder="e.g  Deo" required/>
                   </div>
                   <div className={inputClass}>
-                  <label className="block mb-2 text-sm font-medium text-gray-900 ">Your email:</label>
+                  <label className="block mb-1 text-sm font-medium text-gray-900 ">Your email:</label>
                   <input name='email' value={studentData.email} onChange={handleChanges} type="email" id="email" className="shadow-sm w-full border py-2 px-6 rounded focus:ring-0 focus:outline-blue-500" placeholder="e.g name@wts.com" required/>
                   </div>
                   <div className={inputClass}>
-                  <label  className="block mb-2 relative text-sm font-medium text-gray-900 ">Your password:</label>
+                  <label  className="block mb-1 relative text-sm font-medium text-gray-900 ">Your password:</label>
                   <input name='password' value={studentData.password} onChange={handleChanges}  type={type} id="password" className="shadow-sm w-full border py-2 px-6 rounded focus:ring-0 focus:outline-blue-500" required placeholder='password'/>
-                  <label htmlFor="" onClick={handleAuth} className=' absolute right-5 md:right-20 lg:right-48 translate-y-2'><Icon icon={icon}/></label>
+                  <label htmlFor="" onClick={handleAuth} className=' absolute right-5 translate-y-2'><Icon icon={icon}/></label>
                   </div>
                   <div className={inputClass}>
-                  <label  className="block mb-2 text-sm font-medium text-gray-900 ">Gender:</label>
+                  <label  className="block mb-1 text-sm font-medium text-gray-900 ">Gender:</label>
                               <select  name='gender' value={studentData.gender} onChange={handleChanges}  data-te-select-init className="mb-3  shadow-sm w-full border py-2 px-6 rounded focus:ring-0 focus:outline-blue-500" required>
                                     <option value="" hidden></option>
                                     <option value="male">Male</option>

@@ -7,7 +7,11 @@ const Gard = () => {
     useEffect(() => {
       if(localStorage.user_id){
         setisLoggedIn(true);
-      }else{
+      }
+      else if(sessionStorage.user_id){
+        setisLoggedIn(true);
+      }
+      else{
         setisLoggedIn(false);
       }
       

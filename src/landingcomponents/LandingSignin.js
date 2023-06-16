@@ -7,19 +7,20 @@ import {eye} from 'react-icons-kit/feather/eye'
 import axios from 'axios';
 import { baseUrl } from '../baseUrl';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 const LandingSignin = () => {
 const [statusMess, setstatusMess] = useState("")
+// const [checkBox, setcheckBox] = useState(false)
 const [buttonClass, setbuttonClass] = useState("text-white bg-blue-700 hover:bg-blue-800  font-semibold flex justify-around py-2  my-7 rounded-lg  text-center w-full")
 const [statusClass, setstatusClass] = useState("hidden")
   const [type, settype] = useState('password')
   const [icon, seticon] = useState(eyeOff)
   const navigate = useNavigate();
-  const state = useSelector((state) => state.register)
+//   const state = useSelector((state) => state.register)
 
   useEffect(() => {
-      console.log(state);
+      // console.log(state);
   }, [])
   
 
@@ -46,11 +47,13 @@ const [statusClass, setstatusClass] = useState("hidden")
   }
   const handleSubmit = () =>{
       axios.post(baseUrl + "/login", logInData).then(res =>{
+                  sessionStorage.setItem('user_id', JSON.stringify(res.data.data));
 
             // Storing user's id into localStorage
-            if(res){
-                  localStorage.setItem("user_id", JSON.stringify(res.data.data));
-            }
+            // if(res && !checkBox){
+            // }else if(res && checkBox){
+            //       localStorage.setItem("user_id", JSON.stringify(res.data.data));
+            // }
 
             // Validating user's sign in 
             if(res.data.status === 200){
@@ -88,15 +91,23 @@ const [statusClass, setstatusClass] = useState("hidden")
 
   }
 
+//   const handleCheckBox = () => {
+//       if(!checkBox){
+//             setcheckBox(true)
+//       }else{
+//             setcheckBox(false);
+//       }
+//   }
+
   return (
     <div>
-      <SignInNavBar/>
+      {/* <SignInNavBar/> */}
       <div className="text flex  overflow-hidden">
             <div className="text h-screen w-0 md:w-1/2 bg-cover flex justify-center items-center">
               <img src={img} alt="" className="text w-2/3 ml-10" />
             </div>
             <div className="text h-screen lg:px-20 xl:px-32 px-5 py-12 overflow-hidden w-full md:w-1/2  mx-auto" >
-                  <div className="text mt-32">
+                  <div className="text mt-16">
                         <h1 className="text-center mb-3 mt-1 underline  text-xl font-bold">Sign In</h1>
                   </div>
                   <div className="text  rounded-lg  border  w-full  lg:p-10 py-2 px-3 mx-auto  ">   
@@ -128,10 +139,14 @@ const [statusClass, setstatusClass] = useState("hidden")
                               <input name='password' value={logInData.password} onChange={handleChanges}  type={type} id="password" className="shadow-sm  border border-gray-300 text-gray-900 text-sm focus:outline-blue-500 block w-full p-2" required/>
                               <label htmlFor="" onClick={handleAuth} className=' absolute right-6  -translate-y-8'><Icon icon={icon}/></label>
                               </div>
+                              {/* <div className="flex items-start mb-2 lg:mb-4">
+                              <div className="flex items-center h-5">
+                                    <input onClick={handleCheckBox} onChange={handleChanges} checked={checkBox} id="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded focus:ring-3  dark:border-gray-600 focus:ring-blue-600" required/>
+                              </div>
+                              <label  className="ml-2 text-sm font-medium text-gray-900 ">keep me logged in</label>
+                              </div> */}
                               <button type="submit" onClick={handleSubmit} className={buttonClass}>
-                                    {/* <span className="text w-5 h-5 bg-green-500 p-2 rounded-full animate-pulse"></span> */}
                                     <span className="text">Log In</span>
-                                    {/* <span className="text w-5 h-5 bg-green-500 p-2 rounded-full animate-pulse"></span> */}
                                     </button>
                         </div>
 

@@ -8,8 +8,8 @@ import img6 from '../images2/House Halloween decorations-bro.png'
 
 const About = () => {
   return (
-    <div className='text'>
-      <div className="text w-full h-screen bg-cover bg-no-repeat flex items-center justify-center bg-black/50 bg-blend-overlay " style={{backgroundImage: `url(${img})`}}>
+    <div className='text w-full'>
+      <div className="text w-full h-screen bg-cover bg-no-repeat flex items-center justify-center bg-black/60 bg-blend-overlay " style={{backgroundImage: `url(${img})`}}>
             <h1 className="text-6xl flex justify-center text-white font-bold">About Us</h1>
       </div>
       <section className="text lg:px-32 px-5">
@@ -54,7 +54,7 @@ const About = () => {
                 </div>
                 <div className="text w-full lg:w-3/5">
                       <h1 className="text-2xl hidden lg:grid text-center my-4 font-bold">1. Library</h1>
-                    <p className="lg:text-center  lg:px-16 text-xl text-slate-600">
+                    <p className="lg:text  lg:px-16 text-xl text-slate-600">
                     Our library is intended to give you a relaxing and inviting space where you may study, work with others, or just unwind and read. For your convenience, our facility has quiet places, group study rooms, computer workstations, and study areas.
                     </p>
                 </div>
@@ -72,7 +72,7 @@ const About = () => {
                 </div>
                 <div className="text w-full lg:w-3/5 text-xl">
                   <h1 className="text-2xl hidden lg:grid text-center my-4 font-bold">2. Caferia</h1>
-                    <p className="lg:text-center  w-11/12 lg:px-16 lg:w-full px-2 mb-6 text-slate-600">It has been demonstrated that eating a balanced diet of wholesome foods improves academic achievement, energy levels, and general health. We think that our cafeteria offers students a practical and cost-effective approach to get hold of high-quality food selections that support a balanced and healthy lifestyle.</p>
+                    <p className="lg:text  w-11/12 lg:px-16 lg:w-full px-2 mb-6 text-slate-600">It has been demonstrated that eating a balanced diet of wholesome foods improves academic achievement, energy levels, and general health. We think that our cafeteria offers students a practical and cost-effective approach to get hold of high-quality food selections that support a balanced and healthy lifestyle.</p>
                 </div>
               </div>
               <div className="text lg:flex w-full gap-10 justify-center items-center py-5 "> 
@@ -82,7 +82,7 @@ const About = () => {
                 </div>
                 <div className="text w-full lg:w-3/5 text-xl">
                   <h1 className="text-2xl hidden lg:grid text-center my-4 font-bold mx-auto">3. Hall</h1>
-                    <p className="lg:text-center  w-11/12 lg:w-full px-2 mb-6 lg:px-16 text-slate-600"> The hall is a crucial component of our school community because it offers a place for parents, teachers, and students to gather to celebrate successes, exchange ideas, and take in performances. We think that our hall is a busy place.</p>
+                    <p className="lg:text  w-11/12 lg:w-full px-2 mb-6 lg:px-16 text-slate-600"> The hall is a crucial component of our school community because it offers a place for parents, teachers, and students to gather to celebrate successes, exchange ideas, and take in performances. We think that our hall is a busy place.</p>
                 </div>
                 <div className="text hidden mx-auto lg:flex lg:w-2/5">
                     <img src={img6} alt="" className="text rounded-lg" />

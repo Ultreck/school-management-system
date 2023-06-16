@@ -3,7 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.active{
-      text-decoration: underline;
-      color: orange;
-}
+/* .active {
+  background-color: rgb(16, 177, 246);
+  
+} */
+
+/* .custom-active {
+      Add your custom styling for active links here
+      color: orangered;
+      font-weight: bold;
+      ...
+    }  */

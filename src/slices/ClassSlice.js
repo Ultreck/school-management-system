@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const ClassSlice = createSlice({
-      initialState:{},
+      initialState: '',
       name:'boolean',
       reducers:{
             setClass: (state, {payload}) =>{
@@ -11,5 +11,5 @@ const ClassSlice = createSlice({
             }
       }
 })
-export const classReducer = ClassSlice.reduce;
+export const classReducer = ClassSlice.reducer;
 export const {setClass} = ClassSlice.actions;

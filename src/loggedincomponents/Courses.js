@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import img from '../images2/coursesList2.jpg'
 import Programs from './Programs';
 import { BsChevronDown} from "react-icons/bs";
