@@ -46,14 +46,14 @@ const SideNav = ({setOpen, open}) => {
         {path:"logout", title:'Log out', last:true,  icon:<TbLogout/>},
       ]
   return (
-    <div className='fixed z-50'>
-            <div className={`text  bg-blue-900 h-screen duration-500 ease-in-out ${open? 'w-60' : 'w-28' } px-8 text pt-10 relative`}>
-              <div className="text">
+    <div className='fixed z-40'>
+            <div className={`text  bg-blue-900 h-screen duration-500 ease-in-out ${open? 'w-60' : 'w-28' } px-8 text pt-5 relative`}>
+              <div className="text ">
                 <BsArrowLeft className={`bg-orange-50 border-2 border-orange-600 w-8 h-8 rounded-full p-1 absolute -right-3 shadow-lg cursor-pointer ${!open && 'rotate-180'}`} onClick={() =>setOpen(!open)}/>
               </div>
             <div className={`text inline-flex`}>
                 <IoMdSchool className={` ${open && 'rotate-[360deg]'}  ${!open && 'ml-3'} duration-500 block text-4xl bg-amber-500 rounded-lg float-left text-white  mr-2`}/>
-                <h1 className={`text-2xl text-white font-semibold duration-200 ease-in ${!open && 'scale-0'}`}>Edutech</h1>
+                <h1 className={`text-2xl text-white font-semibold duration-200 ease-in  ${!open && 'scale-0'}`}>Edutech</h1>
             </div>
             <div className={`text flex items-center ${open? 'px-4' : 'px-0'} my-6 rounded-md bg-sky-700 py-2`}>
               <BsSearch className={`block text-white text-lg ${open? 'float-left': 'mx-auto'}`}/>

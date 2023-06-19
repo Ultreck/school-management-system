@@ -80,9 +80,9 @@ useEffect(() => {
               <Route path="profile" element={<Users/>} />
               <Route path="resources" element={<Resources/>} />
               <Route path="schedules" element={<Schedules/>} />
-              <Route path="notification" element={<Notification/>} />
           </Route>
       </Route>
+      <Route path="/portal/notification" element={<Notification/>} />
       <Route path="/dashboard" element={<DashBoardPage/>} />
    </Routes>
    </>

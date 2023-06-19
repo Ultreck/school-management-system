@@ -3,9 +3,9 @@ import img2 from '../images2/Online world-amico.png';
 
 const ChatsHome = () => {
   return (
-    <div>
-        <div className="text w-full h-full flex justify-center items-center">
-                        <div className="text-center w-full h-full lg:ml-5 p-32 xl:ml-28 mx-auto">
+    <div className='bg-slate-200'>
+        <div className="text w-0 lg:w-3/4 mx-auto hidden lg:flex justify-center items-center  h-screen ">
+                        <div className="text-center w-full h-full px-36 py-32 mx-auto">
                               <img src={img2} alt="" className="text w-full h-full " />
                               <div className="text">
                                     <h1 className="text-3xl font-bold text-slate-600">EduTech Web Chat</h1>

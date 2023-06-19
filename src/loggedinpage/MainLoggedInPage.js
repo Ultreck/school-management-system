@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Outlet, Route, Routes } from 'react-router-dom'
+import { Outlet, Route, Routes, useNavigate } from 'react-router-dom'
 import SideNav from '../loggedincomponents/SideNav'
 import MainComponents from '../loggedincomponents/MainComponents'
 import {  getStorage, ref, getDownloadURL } from 'firebase/storage';
@@ -21,13 +21,11 @@ import OptionsBar from '../loggedincomponents/OptionsBar';
 const MainLoggedInPage = ({ isLoggedIn}) => {
   const [open, setOpen] = useState(true);
   const [opOpen, setOpOpen] = useState(false);
-  // const [profileUpload, setprofileUpload] = useState(null);
   const [loader, setloader] = useState(true);
   const [currentUser, setcurrentUser] = useState({});
-  // const [img, setimg] = useState(true);
   const dispatch = useDispatch();
-// const state = useSelector(state => state.datas);
 const users = useSelector(state => state.users);
+const navigate = useNavigate();
 
 
 const firebaseConfig = {
@@ -85,6 +83,9 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
             });
         }, [currentUser])
         
+        const handleNotification = () => {
+          navigate("/portal/notification");
+        }
 
   return (
     <div>
@@ -111,16 +112,17 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
         <div className="text w-full relative">
           <div className={`text w-full ${open? 'lg:w-11/12' : "lg:w-full"}  absolute right-0` } >
             <div className={`text  w-full ${open? 'w-11/12' : 'w-full'} pl-20 relative ml-auto bg-white right-0`}>
-                <div className={`text lg:pr-24 lg:pl-36  py-1 fixed z-40 w-full px-5 bg-white border-b right-0 flex justify-between ${open? 'lg:w-11/12' : "lg:w-full"}`}>
-              <div className="text">
+                <div className={`text lg:pr-24 lg:pl-36  py-1 fixed z-30 w-full px-5 bg-white border-b right-0 flex justify-between ${open? 'lg:w-11/12' : "lg:w-full"}`}>
+              <div className="text lg:ml-10">
                 <h1 className="text-lg font-bold italic ">Welcome to EduTech.</h1>
                 <p className="text-slate-500 lg:text-sm text-xs">
                   Hello <span className="text-blue-600 font-semibold"> { users?.firstname }, </span>  You're welcome!
                 </p>
               </div>
-              <div className="text flex   justify-center items-center">
-                  <div className="text w-7 h-7 lg:mx-10 mx-5 cursor-pointer rounded-full bg-gray-200 flex justify-center items-center" title='Notification(s)'>
+              <div className="text flex justify-center items-center">
+                  <div className="text relative w-7 h-7 lg:mx-10 mx-5 cursor-pointer rounded-full bg-gray-200 flex justify-center items-center" title='Notification(s)' onClick={handleNotification}>
                       <MdNotifications/>
+                    <span className="text p-1 rounded-full -translate-y-1.5 right-1.5  bg-red-500 absolute"></span>
                   </div>
                   <div className="text w-8 h-8 cursor-pointer rounded-full border-2" title='Profile'>
                       <img src={userPics} alt="" className="w-full h-full rounded-full" />

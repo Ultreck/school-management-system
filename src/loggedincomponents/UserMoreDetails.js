@@ -77,7 +77,7 @@ const navLinkStyles = ({isActive}) => {
       </div>
       {/* loader end */}
 
-      <div className="text px-2 bg-slate-400/50 w-full h-full fixed flex justify-center items-center">
+      <div className="text bg-slate-400/50 w-full h-full fixed flex justify-center items-center">
             <div className="text relative bg-white w-full sm:w-3/5 xl:w-1/2 py-5 md:px-16 h-screen px-8">
                   <div className="text-2xl text-red-600 absolute lg:right-10 lg:top-10 right-6 cursor-pointer" title='close' onClick={handleClose}><ImCancelCircle/></div>
                   {pics? 
