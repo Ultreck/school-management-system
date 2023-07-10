@@ -1,18 +1,20 @@
 import React, { useEffect, useState} from 'react'
 import { useSelector } from 'react-redux';
-import img2 from '../images2/background.jpg';
 import {BsSearch} from "react-icons/bs";
 import img from '../images2/user1.jpg'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaUsers} from "react-icons/fa";
 import { SiInstatus} from "react-icons/si";
 import { BsThreeDotsVertical, BsChatLeftDotsFill, BsArrowLeft} from "react-icons/bs";
+import male from "../images2/maleAvatar.jpg"
+import female from "../images2/femaleAvatar.jpg"
 
 const SmallScreenChatSideNav = ({setchatIsTrue, chatIsTrue}) => {
       const [inputSearch, setinputSearch] = useState('');
       const [filterateData, setfilterateData] = useState([]);
       
       const users = useSelector(state => state.datas);
+      const state = useSelector(state => state.users);
       let user_id = JSON.parse(sessionStorage.getItem("user_id"));
       const navigate = useNavigate();
       setchatIsTrue(JSON.parse(localStorage.getItem("chatIsTrue")));
@@ -46,7 +48,17 @@ const SmallScreenChatSideNav = ({setchatIsTrue, chatIsTrue}) => {
                   <div className="text-white flex items-center">
                         <BsArrowLeft className='text-xl mr-5 cursor-pointer'  title='Dashboard' onClick={handleBackArr} />
                         <div className="text w-10 h-10 rounded-full border-2 border-white bg-white">
-                              <img src={img} alt="" className="text w-full h-full rounded-full" />
+                        {state?.path? 
+                       <img src={state?.path} alt="" className="text w-full h-full rounded-full" />:
+                      <>
+                      {state?.gender === 'male' || state?.gender === 'Male' || state?.gender === 'MALE' ? 
+                          <img src={male} alt="" className="text w-full h-full rounded-full" />:
+                          <img src={female} alt="" className="text w-full h-full rounded-full" />
+                    }
+                      
+                      </>
+                    }
+                             
                         </div>
 
                   </div>
@@ -77,7 +89,16 @@ const SmallScreenChatSideNav = ({setchatIsTrue, chatIsTrue}) => {
                                           <div className="text-black font-bold text-lg mt-20">No Name Match.</div>:
                                           <>
                                           <div className="text border-b-white w-12 h-12 rounded-full border bg-slate-200">
-                                                <img src={img2} alt="" className="text w-full h-full rounded-full" />
+                                          {value.path? 
+                                                <img src={value?.path} alt="" className="text w-full h-full rounded-full" />:
+                                                <>
+                                                {value.gender === 'male' || value.gender === 'Male' || value.gender === 'MALE' ? 
+                                                      <img src={male} alt="" className="text w-full h-full rounded-full" />:
+                                                      <img src={female} alt="" className="text w-full h-full rounded-full" />
+                                                }
+                                                
+                                                </>
+                                                }
                                           </div>
                                           <div className="text px-6  py-3">{value.firstname } { value.lastname }</div>
                                           <hr />
@@ -95,7 +116,16 @@ const SmallScreenChatSideNav = ({setchatIsTrue, chatIsTrue}) => {
                               <NavLink to={`active/${value._id}`}  key={value._id} onClick={chatSmallerScreen}>
                                     <div className="text flex py-3 items-center w-full border-b  px-8 hover:bg-slate-100 cursor-pointer">
                                           <div className="text border-b-white w-12 h-12 rounded-full border bg-slate-200">
-                                                <img src={img2} alt="" className="text w-full h-full rounded-full" />
+                                          {value.path? 
+                                                <img src={value?.path} alt="" className="text w-full h-full rounded-full" />:
+                                                <>
+                                                {value.gender === 'male' || value.gender === 'Male' || value.gender === 'MALE' ? 
+                                                      <img src={male} alt="" className="text w-full h-full rounded-full" />:
+                                                      <img src={female} alt="" className="text w-full h-full rounded-full" />
+                                                }
+                                                
+                                                </>
+                                                }
                                           </div>
                                           <div className="text px-6  py-3">{value.firstname } { value.lastname }</div>
                                           <hr />

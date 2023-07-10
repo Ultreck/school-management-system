@@ -7,11 +7,12 @@ import {eye} from 'react-icons-kit/feather/eye'
 import axios from 'axios';
 import { baseUrl } from '../baseUrl';
 import { useNavigate } from 'react-router-dom';
+import LandingNavBar from '../landingcomponents/LandingNavBar';
 // import { useSelector } from 'react-redux';
 
 const LandingSignin = () => {
 const [statusMess, setstatusMess] = useState("")
-// const [checkBox, setcheckBox] = useState(false)
+const [isLoading, setisLoading] = useState(false);
 const [buttonClass, setbuttonClass] = useState("text-white bg-blue-700 hover:bg-blue-800  font-semibold flex justify-around py-2  my-7 rounded-lg  text-center w-full")
 const [statusClass, setstatusClass] = useState("hidden")
   const [type, settype] = useState('password')
@@ -48,7 +49,7 @@ const [statusClass, setstatusClass] = useState("hidden")
   const handleSubmit = () =>{
       axios.post(baseUrl + "/login", logInData).then(res =>{
                   sessionStorage.setItem('user_id', JSON.stringify(res.data.data));
-
+                  setisLoading(true); 
             // Storing user's id into localStorage
             // if(res && !checkBox){
             // }else if(res && checkBox){
@@ -101,6 +102,7 @@ const [statusClass, setstatusClass] = useState("hidden")
 
   return (
     <div>
+      <LandingNavBar/>
       {/* <SignInNavBar/> */}
       <div className="text flex  overflow-hidden">
             <div className="text h-screen w-0 md:w-1/2 bg-cover flex justify-center items-center">
@@ -145,9 +147,7 @@ const [statusClass, setstatusClass] = useState("hidden")
                               </div>
                               <label  className="ml-2 text-sm font-medium text-gray-900 ">keep me logged in</label>
                               </div> */}
-                              <button type="submit" onClick={handleSubmit} className={buttonClass}>
-                                    <span className="text">Log In</span>
-                                    </button>
+                              <button type="submit" onClick={handleSubmit} className={buttonClass} disabled={isLoading}>{isLoading? "Logging  in...": "Log in"}</button>
                         </div>
 
                   </div>

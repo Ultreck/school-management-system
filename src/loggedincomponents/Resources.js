@@ -8,7 +8,7 @@ import { IoIosInformationCircle } from "react-icons/io";
 const Resources = () => {
   const [newsFeedArray, setnewsFeedArray] = useState([])
   const [hovers, sethovers] = useState(null)
-  const [limiter, setlimiter] = useState(1)
+  const [limiter, setlimiter] = useState(0)
   const [postId, setpostId] = useState([])
 
   const user_id = JSON.parse(sessionStorage.getItem("user_id"));

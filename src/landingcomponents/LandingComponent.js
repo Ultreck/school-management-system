@@ -10,9 +10,10 @@ import basketball from '../images2/basketball.png';
 import computer from '../images2/computer.jpg';
 import hall from '../images2/hall.jpg';
 import swim from '../images2/sport.jpg';
-import { HiMoon } from 'react-icons/hi';
+// import { HiMoon } from 'react-icons/hi';
 import { IoMdSchool } from "react-icons/io";
 import HomeSideNavBar from './HomeSideNavBar';
+import {TbReload } from "react-icons/tb";
 
 const LandingComponent = () => {
   const [loader, setloader] = useState(false);
@@ -22,15 +23,15 @@ const LandingComponent = () => {
   
   return (
    <>
-      {/* Loader */}
-      <div className={`text w-full fixed ${!loader? 'hidden' : "fixed"}  h-screen bg-slate-700 z-50 `}>
+     {/* Loader */}
+     <div className={`text w-full fixed ${!loader && "hidden"}  h-screen bg-slate-700 z-50 `}>
         <div className="text w-full h-screen fixed  bg-slate-800">
           <div className="text-center  ">
-            <div className="text mt-20">
+            <div className="text mt-40">
                    <IoMdSchool className='text-amber-600  mt-6 mx-auto text-5xl'/>
                     <span className="text-white text-xl font-bold">Edutech</span>
             </div>
-            <div className="text-center mx-auto abso relative rounded-full  animate-spin duration-300 p-4 mt-40 w-20 h-20 z-50  border-t-2"> </div>
+            <div className="text-center mx-auto relative rounded-full   p-4 mt-20 w-20 h-20 flex justify-center items-center z-50 "> <TbReload className='animate-spin duration-300 text-white text-4xl'/></div>
           </div>
         </div>
       </div>

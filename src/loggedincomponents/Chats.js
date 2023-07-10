@@ -9,7 +9,9 @@ import Emojis from './Emojis';
 import axios from 'axios';
 import { baseUrl } from '../baseUrl';
 import {io} from "socket.io-client";
-import {EmojiClickData, MouseEvent} from 'emoji-picker-react';
+// import {EmojiClickData, MouseEvent} from 'emoji-picker-react';
+import male from "../images2/maleAvatar.jpg"
+import female from "../images2/femaleAvatar.jpg"
 
 
 const Chats = ({isTrue}) => {
@@ -33,12 +35,13 @@ const Chats = ({isTrue}) => {
                   socket.current.emit("addUser", user_id)
             }
       }, [presentUser, user_id]);
-
+      
       useEffect(() => {
             scrollRef.current?.scrollIntoView({behavior: 'smooth'})
       }, [getMessage])
       
       useEffect(() => {
+            localStorage.setItem("chatId", JSON.stringify(id));
             // console.log(isTrue);
             let [found] = user.filter((value,) => (value._id === id));
             setpresentUser(found);
@@ -49,8 +52,6 @@ const Chats = ({isTrue}) => {
                   console.log(err);
             });
       }, [id, user_id, user]);
-
-
 
 
       const handleBackArr = () => {
@@ -114,7 +115,17 @@ const Chats = ({isTrue}) => {
                         <div className="text flex items-center gap-3">
                                     <BsArrowLeft className='text-xl mr-5 cursor-pointer'  title='Leave chat'onClick={handleBackArr} />
                               <div className="text w-10 h-10 rounded-full border-2 border-white bg-white">
-                                    <img src={img} alt="" className="text w-full h-full rounded-full" />
+                              {presentUser?.path? 
+                                    <img src={presentUser?.path} alt="" className="text w-full h-full rounded-full" />:
+                                    <>
+                                    {presentUser?.gender === 'male' || presentUser?.gender === 'Male' || presentUser?.gender === 'MALE' ? 
+                                          <img src={male} alt="" className="text w-full h-full rounded-full" />:
+                                          <img src={female} alt="" className="text w-full h-full rounded-full" />
+                                    }
+                                    
+                                    </>
+                              }
+                                   
                               </div>
                               <p className="text">{presentUser?.firstname } { presentUser?.lastname}</p>
                         </div>

@@ -34,6 +34,9 @@ import UploadProfile from './loggedincomponents/UploadProfile';
 import ChatsPage from './loggedinpage/ChatsPage';
 import Chats from './loggedincomponents/Chats';
 import ChatsHome from './loggedincomponents/ChatsHome';
+import ViewProfile from './loggedincomponents/ViewProfile';
+import CommentComp from './loggedincomponents/CommentComp';
+import PosterDetails from './loggedincomponents/PosterDetails';
 // import MainLoggedInPage from './loggedinpage/MainLoggedInPage';
 // import LandingNavBar from './landingcomponents/LandingNavBar';
 
@@ -57,6 +60,9 @@ useEffect(() => {
       <Route path="/signup" element={<SignUpPage/>} />
       <Route path="/signin" element={<SignInPage/>} />
       <Route path="/about" element={<AboutPage/>} />
+      <Route path="/portal/users/viewpic" element={<ViewProfile/>} />
+      <Route path="/portal/users/comment/:id" element={<CommentComp/>} />
+      <Route path="/portal/blog/details/:id" element={<PosterDetails/>} />
       <Route path="/portal/chat/*" element={<ChatsPage/>}>
           <Route path="home" element={<ChatsHome/>} />
           <Route path="active/:id" element={<Chats/>} />

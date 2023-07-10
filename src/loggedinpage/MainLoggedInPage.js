@@ -1,90 +1,74 @@
 import React, {useEffect, useState} from 'react'
-import { Outlet, Route, Routes, useNavigate } from 'react-router-dom'
-import SideNav from '../loggedincomponents/SideNav'
-import MainComponents from '../loggedincomponents/MainComponents'
-import {  getStorage, ref, getDownloadURL } from 'firebase/storage';
-import { initializeApp } from "firebase/app";
-import axios from 'axios'
-import { baseUrl } from '../baseUrl'
+import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
+import SideNav from '../loggedincomponents/SideNav';
+import MainComponents from '../loggedincomponents/MainComponents';
+import axios from 'axios';
+import { baseUrl } from '../baseUrl';
 import { useDispatch, useSelector } from 'react-redux'
 import { userAct } from '../slices/UserSlice';
 import { MdNotifications } from "react-icons/md";
 import { IoMdSchool } from "react-icons/io";
 import { AiOutlineBars,  } from "react-icons/ai";
-import { getDatas } from '../slices/AllDataSlice'
-import img1 from "../images2/user1.jpg"
-import { setClass } from '../slices/ClassSlice';
-// import female from '../images2/avatar-female-tall.jpg';
-// import male from '../images2/avatar-female-tall.jpg';
+import { getDatas } from '../slices/AllDataSlice';
+import male from "../images2/maleAvatar.jpg";
+import female from "../images2/femaleAvatar.jpg";
+import {TbReload } from "react-icons/tb";
+import img from "../images2/no-internet-connection-illustration-concept-free-vector.jpg"
+import img2 from "../images2/newyork.png"
 import OptionsBar from '../loggedincomponents/OptionsBar';
 
 const MainLoggedInPage = ({ isLoggedIn}) => {
   const [open, setOpen] = useState(true);
   const [opOpen, setOpOpen] = useState(false);
   const [loader, setloader] = useState(true);
-  const [currentUser, setcurrentUser] = useState({});
+  const [alertIsTrue, setalertIsTrue] = useState(false);
+  const [notification, setnotification] = useState([]);
+  const [error, seterror] = useState(null);
   const dispatch = useDispatch();
 const users = useSelector(state => state.users);
 const navigate = useNavigate();
 
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBb2-qXcZBqq60_Z9lQ1ObDHuZjnC9WG5s",
-  authDomain: "school-management-system-cb2fa.firebaseapp.com",
-  projectId: "school-management-system-cb2fa",
-  storageBucket: "school-management-system-cb2fa.appspot.com",
-  messagingSenderId: "22595629780",
-  appId: "1:22595629780:web:68347ab777679570744141",
-  measurementId: "G-BJYV6EF6E1"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
-// const analytics = getAnalytics(app);
-const userPics = useSelector(state => state.boolean);
-
 let user_id = JSON.parse(sessionStorage.getItem('user_id'));
+
+  useEffect(() => {
+    let notificationLength = JSON.parse(localStorage.getItem('nLength'));
+    notification.length > notificationLength? setalertIsTrue(true): setalertIsTrue(false);
+    console.log(notification.length);
+    console.log(notificationLength);
+  }, [notification.length])
+  
+
 
   useEffect(() => {
     axios.get(baseUrl + "/datas").then(res =>{
       dispatch(getDatas(res.data));
       let found = res.data.find((val, index) => (val._id === user_id));
       dispatch(userAct(found));
-      setcurrentUser(found);
         setloader(false);
       }).catch(err => {
+        seterror(err);
         // alert("Network error : error occur while  connecting to the internet. check your internet connection");
       });
         }, [dispatch, user_id]);
 
         useEffect(() => {
-      const downloadUrl = ref(storage, `profilePics/${user_id}`);
-      const downloadUrl2 = ref(storage, `profilePics/male.png`);
-      const downloadUrl3 = ref(storage, `profilePics/female.png`);
-      getDownloadURL(downloadUrl).then((url) => {
-        if(url){
-          dispatch(setClass(url));
-            // setimg(true);
-          }}).catch(err => {
-            if(currentUser.gender === 'male' || currentUser.gender === 'Male' || currentUser.gender === 'MALE'){
-              getDownloadURL(downloadUrl2).then(urlMale =>{
-                  dispatch(setClass(urlMale));
-                  // console.log(urlMale);
-                })
-              }else if(currentUser.gender === 'female' || currentUser.gender === 'Female' || currentUser.gender === 'FEMALE'){
-                getDownloadURL(downloadUrl3).then(urlFemale =>{
-                  dispatch(setClass(urlFemale));
-                  // console.log(urlFemale);
-                  
-                })
-              }
-             
-            });
-        }, [currentUser])
+          axios.get(baseUrl + '/notification').then(res => {
+            let found = res.data.filter((value, index) => value.poster_id === user_id);
+
+            let foundExact = found.filter((value, index) => value.user_id !== user_id);
+            setnotification(foundExact)
+            
+          } )
+        }, [user_id])
         
-        const handleNotification = () => {
-          navigate("/portal/notification");
+        
+
+          const handleNotification = () => {
+            localStorage.setItem("nLength", JSON.stringify(notification.length))
+            navigate("/portal/notification");
+          }
+        const handleReload = () => {
+          window.location.reload();
         }
 
   return (
@@ -93,11 +77,25 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
       <div className={`text w-full fixed ${!loader && "hidden"}  h-screen bg-slate-700 z-50 `}>
         <div className="text w-full h-screen fixed  bg-slate-800">
           <div className="text-center  ">
-            <div className="text mt-20">
-                   <IoMdSchool className='text-amber-600  mt-6 mx-auto text-5xl'/>
-                    <span className="text-white text-xl font-bold">Edutech</span>
-            </div>
-            <div className="text-center mx-auto relative rounded-full  animate-spin duration-300 p-4 mt-40 w-20 h-20 z-50  border-t-2"> </div>
+            {error? 
+            <div className="text-white flex justify-center items-center">
+              <div className="text-white gap-5 mt-40" >
+                <img src={img} alt="" className="text" />
+                <h2 className="text-white mt-10">Your connection was interrupted</h2>
+                  <small className="text-white my-3">A network change was detected.</small>
+                  <p className="text-white my-3">ERR_NETWORK_CHANGED.</p>
+                  <button onClick={handleReload} className="text bg-blue-500 text-center py-3 px-20 mt-5 hover:bg-blue-600 rounded">Reload</button>
+              </div>
+
+            </div>:
+            <>
+              <div className={`text mt-40`}>
+                    <IoMdSchool className='text-amber-600  mt-6 mx-auto text-5xl'/>
+                      <span className="text-white text-xl font-bold">Edutech</span>
+              </div>
+              <div className="text-center mx-auto relative rounded-full   p-4 mt-20 w-20 h-20 flex justify-center items-center z-50 "> <TbReload className='animate-spin duration-300 text-white text-4xl'/></div>
+            </>
+            }
           </div>
         </div>
       </div>
@@ -122,13 +120,22 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
               <div className="text flex justify-center items-center">
                   <div className="text relative w-7 h-7 lg:mx-10 mx-5 cursor-pointer rounded-full bg-gray-200 flex justify-center items-center" title='Notification(s)' onClick={handleNotification}>
                       <MdNotifications/>
-                    <span className="text p-1 rounded-full -translate-y-1.5 right-1.5  bg-red-500 absolute"></span>
+                    <span className={`text p-1 rounded-full ${alertIsTrue? "" : "hidden"} -translate-y-2.5 right-0  bg-red-600 absolute`}></span>
                   </div>
                   <div className="text w-8 h-8 cursor-pointer rounded-full border-2" title='Profile'>
-                      <img src={userPics} alt="" className="w-full h-full rounded-full" />
+                    {users.path? 
+                      <img src={users?.path} alt="" className="w-full h-full rounded-full" />:
+                      <>
+                      {users.gender === 'male' || users.gender === 'Male' || users.gender === 'MALE' ? 
+                          <img src={male} alt="" className="w-full h-full rounded-full" />:
+                          <img src={female} alt="" className="w-full h-full rounded-full" />
+                    }
+                      
+                      </>
+                    }
                       {/* <img src={img1} alt="" className="w-full h-full rounded-full" /> */}
                   </div>
-                  <div className="text ml-5 ">
+                  <div className="text ml-5 lg:hidden">
                     <AiOutlineBars onClick={() =>setOpOpen(!opOpen)}/>
                   </div>
               </div>

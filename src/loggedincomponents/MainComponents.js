@@ -1,6 +1,6 @@
-import React , {useState, useEffect} from 'react';
+import React , {useState} from 'react';
 import Calendar from 'react-calendar';
-import { useDispatch, useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import { IoMdSchool } from "react-icons/io";
 import { GiTeacher } from "react-icons/gi";
 import { MdSubject } from "react-icons/md";
@@ -15,28 +15,14 @@ import {
   Legend
 } from 'chart.js'
 import { Bar, Doughnut } from 'react-chartjs-2'
-// import axios from 'axios';
-// import { baseUrl } from '../baseUrl';
-// import { getDatas } from '../slices/AllDataSlice';
 import { Link } from 'react-router-dom';
+import lecturers from './Lecturers';
 // import 'react-calendar/'
 
 const MainComponents = ({open}) => {
-  const [date, setdate] = useState(new Date());
-  // const [userData, setuserData] = useState([])
-// const dispatch = useDispatch();
-
-// useEffect(() => {
-//   axios.get(baseUrl + "/datas").then(res =>{
-//     setuserData(res.data);
-//     // console.log(res);
-//     dispatch(getDatas(res.data));
-//     }).catch(err => {console.log(err);});
-//   }, [dispatch])
-  
   const state = useSelector(state => state.datas);
-
-  // console.log(users);
+  const [date, setdate] = useState(new Date());
+// console.log(lecturers);
 
   Chartjs.register(
       BarElement,
@@ -48,12 +34,12 @@ const MainComponents = ({open}) => {
   )
   // bar chart datas
   const data = {
-    labels: [2021, 2022, 20223, 2024, 2025],
+    labels: [2021, 2022, 2023, 2024],
     datasets:[
       {
         label: "Admission",
-        data: [1, 2, 3, 4, 5, 6, 7],
-        backgroundColor: 'aqua',
+        data: [1, 5, state.length, 0],
+        backgroundColor:[ "green"],
         borderColor: 'none',
         borderWidth: 0,
         borderRadius: 2,
@@ -67,11 +53,11 @@ const MainComponents = ({open}) => {
 
   // doughnut chart datas
   const data2 = {
-    labels: [2022, 20223, 2024],
+    labels: [2021, 2022, 2023, 2024],
     datasets:[
       {
-        data: [0, 3, 0],
-        backgroundColor: ["red", "blue", "green" ],
+        data: [1, 5,  state.length, 0],
+        backgroundColor: ["red", "blue", "green", "black" ],
         borderColor: 'aqua',
         borderWidth: 1,
         width: 1
@@ -89,15 +75,15 @@ const MainComponents = ({open}) => {
                   <div className="text-white mx-auto w-10 h-10 bg-blue-600 p-2" style={{clipPath:"polygon(0 25%, 51% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)"}}>
                     <IoMdSchool className='z-50 w-full h-full'/>
                   </div>
-                    <p className="text-sm lg:text-lg py-2 ">Total Student</p>
+                    <p className="text-sm lg:text-lg py-2 ">Total Students</p>
                     <div className="text-xl font-semibold">{state.length}</div>
                 </div>
                 <div className="text-center w-full md:w-1/4  lg:w-2/5 xl:w-1/4 my-5 h-40 px-2 py-5 bg-red-100 rounded-lg">
                   <div className="text-white mx-auto w-10 h-10 bg-red-600 p-2" style={{clipPath:"polygon(0 25%, 51% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)"}}>
                     <GiTeacher className='z-50 w-full h-full'/>
                   </div>
-                    <p className="text-sm lg:text-lg py-2 ">Total Teacher</p>
-                    <div className="text-xl font-semibold">50</div>
+                    <p className="text-sm lg:text-lg py-2 ">Total Staffs</p>
+                    <div className="text-xl font-semibold">{lecturers.length}</div>
                 </div>
                 <div className="text-center w-full md:w-1/4  lg:w-2/5 xl:w-1/4 my-5 h-40 px-2 py-5 bg-green-100 rounded-lg">
                   <div className="text-white mx-auto w-10 h-10 bg-green-600 p-2" style={{clipPath:"polygon(0 25%, 51% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)"}}>
@@ -172,6 +158,17 @@ const MainComponents = ({open}) => {
                     Selected date: {date.toDateString()}
                   </div>
                   {/* <div className="text"></div> */}
+                </div>
+                <div className="text">
+                  <table className="text">
+                    <thead className="text">
+                      <tr className="text">
+                        <th className="text">
+                          
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
                 </div>
           </div>
       </div>

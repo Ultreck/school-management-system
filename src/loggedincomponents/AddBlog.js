@@ -8,13 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 const AddBlog = () => {
       const [isLoading, setisLoading] = useState(false);
-      // const [state, setstate] = useState();
-    
-      const [user_id, setuser_id] = useState();
       const more = useRef();
       const file = useRef();
-      //     const state = useSelector(state => state.users);
-      //     console.log(state);
       const navigate = useNavigate();
       
       
@@ -30,7 +25,6 @@ useEffect(() => {
         const form = new FormData();
         let user_id = JSON.parse(sessionStorage.getItem('user_id'));
         setisLoading(true); 
-
         axios.get(baseUrl + "/datas").then(res =>{
             let found = res.data.find((val, index) => (val._id === user_id));
             // axios for form and to post blog
@@ -38,6 +32,7 @@ useEffect(() => {
             form.append("firstname", found.firstname);
             form.append("lastname", found.lastname);
             form.append("user_id", user_id);
+            form.append("senderImg", found.path);
             form.append('file', file.current.files[0]);
             axios.post(baseUrl + "/new-post", form).then(res => {
               if(res){

@@ -8,6 +8,7 @@ import SmallScreenChatSideNav from '../loggedincomponents/SmallScreenChatSideNav
 
 const ChatsPage = () => {
       const [chatIsTrue, setchatIsTrue] = useState();
+      // const [currentUser, setcurrentUser] = useState(null);
       // const [inputSearch, setinputSearch] = useState('');
       // const [searchData, setsearchData] = useState([]);
 

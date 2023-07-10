@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerFunct } from '../slices/RegisterSlice';
 import Programs from '../loggedincomponents/Programs';
+import LandingNavBar from '../landingcomponents/LandingNavBar';
 // import { IoMdSchool } from "react-icons/io";
 
 const LandingSignUp = () => {
@@ -224,6 +225,7 @@ const LandingSignUp = () => {
 
   return (
     <div>
+      <LandingNavBar/>
       {/* <SignUpSideBar/> */}
       <div className="text flex  justify-center overflow-auto lg:overflow-hidden">
             <div className="text lg:px-8  w-full px-5 md:w-1/2 bg-cover mx-auto md:mt-12 mt-12 lg:mt-20 bg-white border-b md:border-b-0 fixed lg:relative ">

@@ -88,7 +88,6 @@ let i = 1;
 
   return (
     <div className='my-10 w-full h-full'>
-      {/* <div className="text w-full h-full mx-auto justify-center items-center fixed bg-slate-700"></div> */}
         <h1 className="text-lg text-center text-slate-800 my-1">My To Do List</h1>
       <div className="text my-8">
         <h1 className="text-lg text-slate-800 my-1">Introduction:</h1>
