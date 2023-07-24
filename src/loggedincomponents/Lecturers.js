@@ -1,8 +1,8 @@
-import img from '../lecruersImages/image1.jpeg'
+// import img from '../lecruersImages/image1.jpeg'
 const lecturers = [
       {
         name: 'Dr. Benjamin Johnson',
-        course: 'Introduction to Computer Science',
+        course: 'Computer Science',
         picture: require( '../lecruersImages/image1.jpeg'),
       },
       {

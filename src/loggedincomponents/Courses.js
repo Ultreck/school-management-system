@@ -23,7 +23,7 @@ const showEach = (e) => {
         </div>
       </div>
       <section className="text ">
-          <div className="hidden lg:grid cursor-pointer text-center translate-y-20 bg-green-600 w-28 p-3  text-white rounded-full animate-bounce sticky lg:top-10 top-20 lg:rotate-0 rotate-180 mr-10 ml-auto mt-20 font-bold" onClick={() =>setOpen(!open)}>Show All</div>
+          <div className="hidden lg:grid cursor-pointer text-center translate-y-20 bg-green-600 w-28 p-3  text-white rounded-full animate-bounce sticky lg:top-24 top-20 lg:rotate-0 rotate-180 mr-10 ml-auto mt-20 font-bold" onClick={() =>setOpen(!open)}>Show All</div>
           <div className="text-center w-full lg:w-1/2 mx-auto">
                 <h1 className="text-center text-5xl font-bold mt-10 lg:mb-5">Our Programs</h1>
           <div className="lg:hidden cursor-pointer text-center bg-green-600 w-10 p-3  text-white rounded-full animate-bounce sticky lg:top-10 top-20 lg:rotate-0 rotate-180 ml-auto lg:mt-20 font-bold" onClick={() =>setOpen(!open)} title='Display all'><BsChevronDown className={` ${open?  "rotate-180 duration-300 ease-in-out": "duration-300 ease-in-out"}`}/></div>
@@ -120,9 +120,9 @@ const showEach = (e) => {
                 </div>
           </div>
       </section>
-      <footer class="text-gray-600 body-font">
+      <footer class="text-gray-600 bg-gray-100 body-font mx-auto">
       <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+        <div class="w-64 border flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a href='##' class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -131,7 +131,7 @@ const showEach = (e) => {
           </a>
           <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
         </div>
-        <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+        <div class="flex-grow border flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div class="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
             <nav class="list-none mb-10">
@@ -149,7 +149,7 @@ const showEach = (e) => {
               </li>
             </nav>
           </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <div class="lg:w-1/4 md:w-1/2 border w-full px-4">
             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
             <nav class="list-none mb-10">
               <li>
@@ -166,24 +166,7 @@ const showEach = (e) => {
               </li>
             </nav>
           </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav class="list-none mb-10">
-              <li>
-                <a href='##' class="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a href='##' class="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a href='##' class="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a href='##' class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <div class="lg:w-1/4 md:w-1/2 border w-full px-4">
             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
             <nav class="list-none mb-10">
               <li>
@@ -202,7 +185,7 @@ const showEach = (e) => {
           </div>
         </div>
       </div>
-      <div class="bg-gray-100">
+      <div class="bg-gray-200">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p class="text-gray-500 text-sm text-center sm:text-left">© 2021 Tailwind Snippets —
             <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a>

@@ -186,7 +186,7 @@ useEffect(() => {
       </div>
       }
 
-      <div className={`${courseMate? "" : "hidden"} fixed z-40`}>
+      <div className={`${courseMate? "flex lg:hidden" : "hidden"} fixed z-40`}>
           <div className={`text w-full `}>
               <PeopleProfile/>
           </div>

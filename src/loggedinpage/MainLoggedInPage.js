@@ -33,8 +33,8 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
   useEffect(() => {
     let notificationLength = JSON.parse(localStorage.getItem('nLength'));
     notification.length > notificationLength? setalertIsTrue(true): setalertIsTrue(false);
-    console.log(notification.length);
-    console.log(notificationLength);
+    // console.log(notification.length);
+    // console.log(notificationLength);
   }, [notification.length])
   
 

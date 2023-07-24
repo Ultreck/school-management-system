@@ -23,6 +23,7 @@ const LandingComponent = () => {
   
   return (
    <>
+   
      {/* Loader */}
      <div className={`text w-full fixed ${!loader && "hidden"}  h-screen bg-slate-700 z-50 `}>
         <div className="text w-full h-screen fixed  bg-slate-800">
