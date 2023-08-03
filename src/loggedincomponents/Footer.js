@@ -47,7 +47,7 @@ const Footer = () => {
             </a>
             <p class="mt-2 text-sm text-gray-500">is a comprehensive solution designed to streamline administrative tasks and enhance communication within educational institutions.</p>
           </div>
-          <div class="flex-grow flex flex-wrap justify-around md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+          <div class="flex-grow lg:flex flex-wrap justify-around md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           {/* Navigation Links */}
           <div className={`my-2 ${sessionStorage.user_id ? " " : "hidden"}`}>
             <h3 className="text-xl font-bold mb-2">Quick Links</h3>
