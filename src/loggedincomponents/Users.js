@@ -103,14 +103,6 @@ const handleShowTable  = () => {
             <span className="text font-semibold">Time: </span>
            You may plan your daily routine by using the time column, which lists the start and end timings for each lesson.
           </li>
-          <li className="text my-2">
-            <span className="text font-semibold">Add Row: </span>
-           You may want to add row to your table and to do that you'll have to  press "add row" button
-          </li>
-          <li className="text my-2">
-            <span className="text font-semibold">Finish Button: </span>
-         Once you finished creating your table to save your work then you'll have to press "Finish" button
-          </li>
           <mark className=" mt-6  py-2">If you still have any question concerning this please refer to the <span className="text underline text-blue-700"> FAQ </span>  page.</mark>
         </ul>
       </div>
@@ -178,13 +170,13 @@ const handleShowTable  = () => {
               <table className="w-full border-collapse border border-slate-600" align='center'>
                   <thead className="text-white  bg-blue-900">
                       <tr className="text border border-white px-2 lg:px-5 py-1">
-                          <th className="text border border-white px-1 lg:px-3 py-1">Actions</th>
                           <th className="text border border-white px-1 lg:px-3 py-1">Time</th>
                           <th className="text border border-white px-1 lg:px-3 py-1">Mon</th>
                           <th className="text border border-white px-1 lg:px-3 py-1">Tue</th>
                           <th className="text border border-white px-1 lg:px-3 py-1">Wed</th>
                           <th className="text border border-white px-1 lg:px-3 py-1">Thu</th>
                           <th className="text border border-white px-1 lg:px-3 py-1">Fri</th>
+                          <th className="text border border-white px-1 lg:px-3 py-1">Actions</th>
                       </tr>
                   </thead>
                   <tbody className="text">

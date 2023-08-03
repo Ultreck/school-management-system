@@ -12,6 +12,7 @@ import { IoMdSend, IoMdChatbubbles, IoMdSchool } from "react-icons/io";
 import { useSelector } from 'react-redux';
 import EmojiPicker from 'emoji-picker-react';
 import {TbReload } from "react-icons/tb";
+import TimestampDisplay from './TimestampDisplay';
 
 const CommentComp = () => {
       const [currentPost, setcurrentPost] = useState({});
@@ -47,8 +48,9 @@ const CommentComp = () => {
             let path = user.path;
             let posterId = currentPost.user_id;
             let more = currentPost.more;
-           axios.post(baseUrl + "/actions", {name, path, action, more, posterId, liked }).then(res => 
-            console.log(res)).catch(error => console.log(error)); 
+           axios.post(baseUrl + "/actions", {name, path, action, more, posterId, liked })
+           .then(res => console.log(res))
+           .catch(error => console.log(error)); 
           }
 
       const handleSend = (e) => {
@@ -221,21 +223,21 @@ const onEmojiClick = (EmojiClickData, MouseEvent) => {
                     </div>
                 </button>
                 } 
-                <button  title='Comment' className="text-center w-1/2 rounded-lg py-1 ">
+                <div className="text-center w-1/2 rounded-lg py-1 ">
                 <div className="text-center flex items-center justify-center gap-4">
-                    <FaRegCommentAlt  className='text-xl text-slate-400 '/>
+                    <FaRegCommentAlt  className='text-xl text-slate-400  '/>
                     <span className="text text-slate-400">Comment</span>
                 </div>
-                </button>
+                </div>
                </div>
             </div>
             {currentPost.comments?.length > 0 ?
             <div className={`pb-5 ${currentPost.comments? "mb-10":"mb-5"} bg-white`}>
                 {currentPost.comments?.map((msg, index) => (
                       <>
-                  <div className="text" key={msg._id}>
+                  <div className="text relative" key={msg._id}>
                         <div className="text py-3 flex px-5 items-center">
-                              <div className="text w-10 h-10 rounded-full border mr-4">
+                              <div className="text -mt-7 w-10 h-10 rounded-full border mr-4">
                                     {msg?.path? 
                                     <img src={msg.path} alt="" className="text w-full h-full rounded-full" />:
                                     <>
@@ -247,9 +249,12 @@ const onEmojiClick = (EmojiClickData, MouseEvent) => {
                                     </>
                               }
                         </div>
-                        <div className="text bg-gray-100 py-3 px-5 rounded-lg"> 
+                        <div className="text mb-10 bg-gray-100 py-3 px-5 relative rounded-lg"> 
                         <h1 className="text-sm lg:text-md font-bold">{msg.fullName}</h1>
                         <span className="text-slate-800 text-sm">{msg.text}</span>
+                        <span className="text-slate-800 text-xs absolute -bottom-5 left-0">
+                              <TimestampDisplay timestamp={currentPost.comments[index].createdAt}/>
+                        </span>
                         </div>
                         </div>
                   </div>

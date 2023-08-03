@@ -4,6 +4,7 @@ import { BsArrowLeft} from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../baseUrl';
 import io from 'socket.io-client';
+import TimestampDisplay from './TimestampDisplay';
 
 const Notification = () => {
   // const [usersPost, setusersPost] = useState([])
@@ -92,8 +93,7 @@ useEffect(() => {
                     </div>
                 </div>
                 <div className="text-xs lg:text-sm border-b w-3/4 text-end absolute bottom-0 right-0">
-                  {value.createdAt.slice(11, 16) < "12:00"? `${value.createdAt.slice(11, 16)}am `: `${value.createdAt.slice(11, 16)}pm `} 
-                  {value.createdAt.slice(0, 10)}
+                  <TimestampDisplay timestamp={value.createdAt}/>
                 </div>
               </div>:
                 <div className="text hidden"></div>

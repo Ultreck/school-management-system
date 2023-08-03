@@ -14,13 +14,14 @@ import male from "../images2/maleAvatar.jpg";
 import female from "../images2/femaleAvatar.jpg";
 import {TbReload } from "react-icons/tb";
 import img from "../images2/no-internet-connection-illustration-concept-free-vector.jpg"
-import img2 from "../images2/newyork.png"
+// import img2 from "../images2/newyork.png"
 import OptionsBar from '../loggedincomponents/OptionsBar';
 
 const MainLoggedInPage = ({ isLoggedIn}) => {
   const [open, setOpen] = useState(true);
   const [opOpen, setOpOpen] = useState(false);
   const [loader, setloader] = useState(true);
+  // const [scrolled, setScrolled] = useState(false);
   const [alertIsTrue, setalertIsTrue] = useState(false);
   const [notification, setnotification] = useState([]);
   const [error, seterror] = useState(null);
@@ -54,14 +55,13 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
         useEffect(() => {
           axios.get(baseUrl + '/notification').then(res => {
             let found = res.data.filter((value, index) => value.poster_id === user_id);
-
             let foundExact = found.filter((value, index) => value.user_id !== user_id);
             setnotification(foundExact)
             
           } )
         }, [user_id])
         
-        
+
 
           const handleNotification = () => {
             localStorage.setItem("nLength", JSON.stringify(notification.length))
@@ -110,7 +110,7 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
         <div className="text w-full relative">
           <div className={`text w-full ${open? 'lg:w-11/12' : "lg:w-full"}  absolute right-0` } >
             <div className={`text  w-full ${open? 'w-11/12' : 'w-full'} pl-20 relative ml-auto bg-white right-0`}>
-                <div className={`text lg:pr-24 lg:pl-36  py-1 fixed z-30 w-full px-5 bg-white border-b right-0 flex justify-between ${open? 'lg:w-11/12' : "lg:w-full"}`}>
+                <div className={`text border-b lg:pr-24 lg:pl-36  py-1 fixed z-30 w-full px-5 bg-white right-0 flex justify-between ${open? 'lg:w-11/12' : "lg:w-full"}`}>
               <div className="text lg:ml-10">
                 <h1 className="text-lg font-bold italic ">Welcome to EduTech.</h1>
                 <p className="text-slate-500 lg:text-sm text-xs">
@@ -140,7 +140,7 @@ let user_id = JSON.parse(sessionStorage.getItem('user_id'));
                   </div>
               </div>
             </div>
-                </div>
+          </div>
             <Routes>
             <Route path="/" element={<MainComponents open={open}/>} />
             </Routes>

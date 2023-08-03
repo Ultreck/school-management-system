@@ -7,7 +7,7 @@ import AccademicDetails from './AccademicDetails';
 import { Outlet } from 'react-router-dom';
 import axios from 'axios';
 import { baseUrl } from '../baseUrl';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import male from "../images2/maleAvatar.jpg"
 import female from "../images2/femaleAvatar.jpg"
 import {TbReload } from "react-icons/tb";
@@ -17,7 +17,7 @@ const UserMoreDetails = () => {
       const [state, setstate] = useState({});
       // const [isActivee, setisActivee] = useState(0);
       const navigate =  useNavigate();
-      const pics = useSelector(state => state.boolean);
+      // const pics = useSelector(state => state.boolean);
       
       // start on use effect
       useEffect(() => {

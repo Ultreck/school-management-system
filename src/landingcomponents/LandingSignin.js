@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import img from '../images2/Taking notes-amico.png'
-import SignInNavBar from './SignInNavBar';
+// import SignInNavBar from './SignInNavBar';
 import {Icon} from 'react-icons-kit';
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
 import {eye} from 'react-icons-kit/feather/eye'
 import axios from 'axios';
+import img2 from "../images2/no-internet-connection-illustration-concept-free-vector.jpg"
+// import { IoMdSchool } from "react-icons/io";
+// import {TbReload } from "react-icons/tb";
 import { baseUrl } from '../baseUrl';
 import { useNavigate } from 'react-router-dom';
 import LandingNavBar from '../landingcomponents/LandingNavBar';
@@ -13,16 +16,23 @@ import LandingNavBar from '../landingcomponents/LandingNavBar';
 const LandingSignin = () => {
 const [statusMess, setstatusMess] = useState("")
 const [isLoading, setisLoading] = useState(false);
-const [buttonClass, setbuttonClass] = useState("text-white bg-blue-700 hover:bg-blue-800  font-semibold flex justify-around py-2  my-7 rounded-lg  text-center w-full")
+const [loader, setloader] = useState(false);
+const [error, seterror] = useState(false);
+// const ["text-white bg-blue-700 hover:bg-blue-800  font-semibold flex justify-around py-2  my-7 rounded-lg  text-center w-full", set"text-white bg-blue-700 hover:bg-blue-800  font-semibold flex justify-around py-2  my-7 rounded-lg  text-center w-full"] = useState()
 const [statusClass, setstatusClass] = useState("hidden")
   const [type, settype] = useState('password')
   const [icon, seticon] = useState(eyeOff)
+  const [logInData, setlogInData] = useState({
+      email:"", password:""
+  })
   const navigate = useNavigate();
 //   const state = useSelector((state) => state.register)
 
   useEffect(() => {
-      // console.log(state);
-  }, [])
+      if(logInData.password && logInData.email){
+            setloader(true);
+      }
+  }, [logInData])
   
 
   const handleAuth = () => {
@@ -37,9 +47,6 @@ const [statusClass, setstatusClass] = useState("hidden")
 
         }
   }
-  const [logInData, setlogInData] = useState({
-      email:"", password:""
-  })
 
   const handleChanges = (e) =>{
       const {name, value} = e.target
@@ -47,9 +54,9 @@ const [statusClass, setstatusClass] = useState("hidden")
       //   console.log(logInData);
   }
   const handleSubmit = () =>{
+        setisLoading(true); 
       axios.post(baseUrl + "/login", logInData).then(res =>{
                   sessionStorage.setItem('user_id', JSON.stringify(res.data.data));
-                  setisLoading(true); 
             // Storing user's id into localStorage
             // if(res && !checkBox){
             // }else if(res && checkBox){
@@ -59,7 +66,7 @@ const [statusClass, setstatusClass] = useState("hidden")
             // Validating user's sign in 
             if(res.data.status === 200){
                   setstatusMess("successfully logged in");
-                  setbuttonClass("text-white bg-blue-700 hover:bg-blue-800  font-semibold animate-pulse flex justify-around py-2 rounded-lg  text-center w-full ");
+                  // set"text-white bg-blue-700 hover:bg-blue-800  font-semibold flex justify-around py-2  my-7 rounded-lg  text-center w-full"("text-white bg-blue-700 hover:bg-blue-800  font-semibold animate-pulse flex justify-around py-2 rounded-lg  text-center w-full ");
                   setstatusClass("mb-3  inline-flex w-full items-center rounded-lg bg-green-100 py-3 px-4 text-sm text-green-800 ");
                   navigate("/portal");
             }
@@ -85,24 +92,39 @@ const [statusClass, setstatusClass] = useState("hidden")
                         setstatusMess("Incorrect password")
                         setstatusClass("mb-3 flex w-full items-center rounded-lg bg-red-100 py-3 px-4 text-sm text-red-800")
                   }
-                  }
+            }
+
       }).catch(err =>{
+            seterror(err);
+            setisLoading(false);
             console.log(err)
       })
 
   }
 
-//   const handleCheckBox = () => {
-//       if(!checkBox){
-//             setcheckBox(true)
-//       }else{
-//             setcheckBox(false);
-//       }
-//   }
+  const handleReload = () => {
+      window.location.reload();
+    }
 
   return (
     <div>
       <LandingNavBar/>
+       {/* Loader */}
+            {error && 
+            <div className="text bg-slate-900 h-screen w-full fixed z-50">
+            <div className="text-white flex justify-center items-center">
+              <div className="text-white gap-5 mt-40" >
+                <img src={img2} alt="" className="text" />
+                <h2 className="text-white mt-10">Your connection was interrupted</h2>
+                  <small className="text-white my-3">A network change was detected.</small>
+                  <p className="text-white my-3">ERR_NETWORK_CHANGED.</p>
+                  <button onClick={handleReload} className="text bg-blue-500 text-center py-3 px-20 mt-5 hover:bg-blue-600 rounded">Reload</button>
+              </div>
+            </div>
+       </div> 
+        } 
+
+
       {/* <SignInNavBar/> */}
       <div className="text flex  overflow-hidden">
             <div className="text h-screen w-0 md:w-1/2 bg-cover flex justify-center items-center">
@@ -147,7 +169,7 @@ const [statusClass, setstatusClass] = useState("hidden")
                               </div>
                               <label  className="ml-2 text-sm font-medium text-gray-900 ">keep me logged in</label>
                               </div> */}
-                              <button type="submit" onClick={handleSubmit} className={buttonClass} disabled={isLoading}>{isLoading? "Logging  in...": "Log in"}</button>
+                              <button type="submit" onClick={handleSubmit} className={`text-white   ${!loader? 'bg-blue-400': 'hover:bg-blue-800 bg-blue-700'}  font-semibold flex justify-around py-2  my-7 rounded-lg  text-center w-full`} disabled={!logInData.password && !logInData.email}>{isLoading? "Logging  in...": `${error? 'Network Error...' : 'Log in'}`}</button>
                         </div>
 
                   </div>

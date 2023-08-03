@@ -59,8 +59,8 @@ const LandingSignUp = () => {
             }
 
             if(count === 0 && sessionStorage.user_id){
-                  navigate("/signin");
-                  // navigate("/portal");
+                  // navigate("/signin");
+                  navigate("/portal");
             }
             return () => clearTimeout();
       };
@@ -189,7 +189,8 @@ const LandingSignUp = () => {
                 setcount(5)
                 seterrModalClass("hidden");
                  axios.post(baseUrl + "/register", state).then(res => {
-                              // console.log(res.data.data);
+                              console.log(res.data.data._id);
+                              sessionStorage.setItem('user_id', JSON.stringify(res.data.data._id));
                               if(res.data.status === 400){
                                     seterrModalText("Account already exist, please sign in")
                                     seterrModalClass('mb-3 inline-flex w-full items-center rounded-lg bg-red-100 py-3 px-4 text-sm text-red-800')

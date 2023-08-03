@@ -13,13 +13,13 @@ const HomeSideNavBar = () => {
         return {
           fontWeight: isActive? 'bold' : "normal",
           textDecoration: isActive? "underline" : "none",
-          color: isActive? 'black' : 'black',
+          color: isActive? 'white' : 'white',
         }
         }
 
   return (
     <div>
-             <nav className="bg-blue-100 md:hidden z-40 px-2 sm:px-4 dark:text-white text-black py-2.5 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+             <nav className="bg-blue-900 md:hidden z-40 px-2 sm:px-4 dark:text-white text-black py-2.5 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div className="container flex flex-wrap items-center justify-between mx-auto">
   <Link to='/' className="flex items-center ">
             <div className="text flex">
@@ -37,7 +37,7 @@ const HomeSideNavBar = () => {
 
 
 
-<div className={` px-5 w-80 py-20 bg-blue-100 h-screen ${homeControl? "" : "hidden"}`}>
+<div className={` px-5 w-80 py-20 bg-blue-900 text-white h-screen fixed ${homeControl? "" : "hidden"}`}>
   <div onClick={() =>sethomeControl(!homeControl)} className="text flex items-center gap-2 my-5">
     <AiOutlineHome/>
     <NavLink style={navLinkStyles} to='/'>Home</NavLink>

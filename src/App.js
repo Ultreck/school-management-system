@@ -54,6 +54,7 @@ useEffect(() => {
   return (
    <>   
       {/* <LandingNavBar/> */}
+      {/* logout */}
    <Routes>
         <Route path="/" element={<LandingPage/>}/>
         {/* <Route path="/" element={<LandingSignUp2/>}/> */}

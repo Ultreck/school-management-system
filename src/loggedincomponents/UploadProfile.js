@@ -12,7 +12,7 @@ const UploadProfile = () => {
       const [count, setcount] = useState(5);
       const [profileUpload, setprofileUpload] = useState(null)
       const [progress, setprogress] = useState(null)
-      const [allBlog, setallBlog] = useState([])
+      // const [allBlog, setallBlog] = useState([])
       const user = useSelector(state => state.users);
    const file = useRef();
     

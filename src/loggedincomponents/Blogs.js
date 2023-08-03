@@ -8,6 +8,7 @@ import male from "../images2/maleAvatar.jpg"
 import female from "../images2/femaleAvatar.jpg"
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import TimestampDisplay from './TimestampDisplay';
 // import { AiTwotoneLike } from 'react-icons/bi';
 
 
@@ -117,8 +118,10 @@ const handleUnlikes = (post, posterId, more) => {
                       
                       </>
                     }
-                    
+                    <div className="text relative grid">
                       <span className="text mx-6">{ value?.firstname } {value?.lastname}</span>
+                      <span className="text-xs font-semibold text-slate-500 absolute mt-5 ml-6"> <TimestampDisplay timestamp={value.createdAt} /></span>
+                    </div>
                   </div>
                   <div  className="text  flex items-center" onClick={() =>handleOption(index)}>
                     <BiDotsHorizontalRounded title='options' className='text-2xl cursor-pointer '/>
