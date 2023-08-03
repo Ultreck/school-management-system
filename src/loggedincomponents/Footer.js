@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <div>
        
-      <footer class="text-gray-600 body-font bg-gray-100">
+      <footer class="text-gray-600 body-font fixed bottom-0 bg-gray-100">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <a href="/portal/home" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
