@@ -13,7 +13,7 @@ const LandingNavBar = () => {
     }
   return (
     <div>       
-<nav className="bg-transparent hidden z-40  md:flex px-2 sm:px-4 py-2.5 dark:bg-transparent absolute w-full  top-0 left-0  ">
+<nav className="bg-transparent hidden z-50  md:flex px-2 sm:px-4 py-2.5 absolute w-full  top-0 left-0  ">
   <div className="container flex flex-wrap items-center justify-between mx-auto  z-30">
   <Link to="/" className="flex items-center text-yellow-400">
       <IoMdSchool className='text-4xl mx-1'/>
