@@ -64,7 +64,7 @@ const Footer = () => {
            {/* Social Media Links */}
            <div className="my-2">
             <h3 className="text-xl font-bold mb-2">Follow Us</h3>
-            <div className="flex space-x-4">
+            <div className="flex justify-around mx-auto space-x-4">
               <a href="https://www.facebook.com/emmanuel.oluwatayese" className="hover:text-gray-300">
                 <FaFacebookSquare size={20} />
               </a>
