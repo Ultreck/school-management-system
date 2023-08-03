@@ -19,7 +19,7 @@ const HomeSideNavBar = () => {
 
   return (
     <div>
-             <nav className="bg-blue-900 md:hidden z-40 px-2 sm:px-4 text-whit py-2.5 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+             <nav className="bg-blue-900 md:hidden z-50 px-2 sm:px-4 text-white py-2.5 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div className="container flex flex-wrap items-center justify-between mx-auto">
   <Link to='/' className="flex items-center ">
             <div className="text flex">
