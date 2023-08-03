@@ -119,7 +119,7 @@ const handleUnlikes = (post, posterId, more) => {
                       </>
                     }
                     <div className="text relative grid">
-                      <span className="text-xs lg:text-md mx-6">{ value?.firstname } {value?.lastname}</span>
+                      <span className="text-sm lg:text-lg mx-6">{ value?.firstname } {value?.lastname}</span>
                       <span className="text-xs font-semibold text-slate-500 absolute mt-5 ml-6"> <TimestampDisplay timestamp={value.createdAt} /></span>
                     </div>
                   </div>
@@ -145,7 +145,7 @@ const handleUnlikes = (post, posterId, more) => {
                <div className="text w-full md:h-96 h-80">
                       <img src={value?.path}  alt="users_image" className="text w-full h-full  border" />
                 </div>
-                  <div className="text-slate-800 px-5 pb-5 border-b mt-5">{value?.more}</div>
+                  <div className="text-slate-700 px-5 pb-5 border-b mt-5 text-sm lg:text-lg">{value?.more}</div>
                 <div className="text px-10 flex justify-between py-3 items-center">
                     <div className="text flex items-center ">
                         <span className="text-lg ">{value?.likes.length}</span>

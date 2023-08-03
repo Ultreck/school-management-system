@@ -42,7 +42,7 @@ const LandingComponent = () => {
     <div className="text " >
       {/* Hero section */}
       <div className="text lg:pt-28 pt-20 px-0 w-full h-screen bg-cover bg-no-repeat bg-black/75 bg-blend-overlay mx-0" style={{backgroundImage: `url(${img})`}}>
-          <p className="text-white text-4xl lg:text-8xl text-center  font-extrabold px-5 lg:px-20 font-sans ">World's Biggest University of Technology</p>
+          <p className="text-white text-4xl lg:text-8xl text-center  font-extrabold px-5 lg:px-20 font-sans ">World's Biggest Institution of Technology</p>
           <p className="text w-3/4 text-center mx-auto text-white text-xl mt-10 lg:px-28">Creating a well equipped and an advanced technology available for all. Technology is one of the most crucial field today and to make your way through or to be able to meet up with your expectation Edutech is the choice.</p>
           <div className="text-center mt-10">
           <Link to={"/signin"}> 

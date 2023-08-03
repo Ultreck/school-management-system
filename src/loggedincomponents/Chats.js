@@ -109,7 +109,7 @@ const Chats = ({isTrue}) => {
 
   return (
     <div className='w-full h-full'>
-            <div className="text  bg-white h-screen overflow-auto pb-20" style={{backgroundImage: `url(${img2})`}}>
+            <div className="text  bg-white h-screen overflow-auto" style={{backgroundImage: `url(${img2})`}}>
                   <>
                   <nav className="text-white bg-blue-900 px-8 py-2 fixed w-full lg:w-3/4 flex justify-between">
                         <div className="text flex items-center gap-3">
@@ -144,7 +144,7 @@ const Chats = ({isTrue}) => {
                                     </p>
                               </div>
                               <div className="text w-full">
-                                    <div className="text-sm pb-20 w-full">
+                                    <div className="text-sm pb-32 w-full">
                                           {getMessage.map((value, index) => (
                                                 <>
                                                       <div ref={scrollRef} key={value._id}>
