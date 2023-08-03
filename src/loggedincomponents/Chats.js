@@ -144,7 +144,7 @@ const Chats = ({isTrue}) => {
                                     </p>
                               </div>
                               <div className="text w-full">
-                                    <div className="text-sm pb-20 w-full">
+                                    <div className="text-sm pb-32 w-full">
                                           {getMessage.map((value, index) => (
                                                 <>
                                                       <div ref={scrollRef} key={value._id}>
