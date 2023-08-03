@@ -19,16 +19,16 @@ const HomeSideNavBar = () => {
 
   return (
     <div>
-             <nav className="bg-blue-900 md:hidden z-50 px-2 sm:px-4 text-white py-2.5 fixed w-full  top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+             <nav className="bg-blue-900 md:hidden z-50 px-2 sm:px-4 text-white py-2.5 fixed w-full  top-0 left-0 border-b">
   <div className="container flex flex-wrap items-center justify-between mx-auto">
   <Link to='/' className="flex items-center ">
             <div className="text flex">
                    <IoMdSchool className='text-amber-600 mx-auto text-3xl'/>
-                    <span className="text text-xl font-bold ml-3">Edutech</span>
+                    <span className="text-white text-xl font-bold ml-3">Edutech</span>
             </div>
   </Link>
-  <button className="text flex md:hidden z-50 fixed right-8 rotate-180 mt-2" onClick={() =>sethomeControl(!homeControl)}>
-                  <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <button className="text-white flex md:hidden z-50 fixed right-8 rotate-180 mt-2" onClick={() =>sethomeControl(!homeControl)}>
+                  <svg className="w-6 h-6 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path clipRule="evenodd" fillRule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
                   </svg>
       </button>
